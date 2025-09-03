@@ -29,6 +29,14 @@
   ],
   "author": "Renato Ferreira",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RenatoRJF/web3-error-helper.git"
+  },
+  "homepage": "https://github.com/RenatoRJF/web3-error-helper#readme",
+  "bugs": {
+    "url": "https://github.com/RenatoRJF/web3-error-helper/issues"
+  },
   "devDependencies": {
     "@types/node": "^24.3.0",
     "typescript": "^5.9.2"
