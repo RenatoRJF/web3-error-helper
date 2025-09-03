@@ -1,6 +1,6 @@
 {
   "name": "web3-error-helper",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "> 🛠️ Turn confusing Web3 errors into clear, human-friendly messages for developers and users alike.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
