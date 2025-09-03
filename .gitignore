@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Optional: logs
+npm-debug.log*
+pnpm-debug.log*
+
+# Optional: IDE/editor files
+.vscode/
+.DS_Store
