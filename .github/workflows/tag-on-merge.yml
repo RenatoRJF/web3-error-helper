@@ -109,7 +109,6 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-          scope: '@renatoferreira'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
