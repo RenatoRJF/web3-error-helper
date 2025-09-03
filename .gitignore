@@ -4,10 +4,18 @@ node_modules/
 # Build output
 dist/
 
-# Optional: logs
+# Coverage reports
+coverage/
+
+# Logs
 npm-debug.log*
 pnpm-debug.log*
+*.log
 
-# Optional: IDE/editor files
+# IDE/editor files
 .vscode/
 .DS_Store
+.idea/
+
+# OS files
+Thumbs.db

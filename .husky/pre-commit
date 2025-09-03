@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Check version sync between package.json and git tags
+npm run check:version
+
+# Run lint-staged to check staged files
+npx lint-staged
+
+# Run tests to ensure nothing is broken
+npm run test

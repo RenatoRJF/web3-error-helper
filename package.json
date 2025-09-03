@@ -17,8 +17,16 @@
     "version:minor": "pnpm version minor",
     "version:major": "pnpm version major",
     "publish:local": "pnpm run prepublish && pnpm publish --access public",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "echo \"Error: no linter specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "format:check": "prettier --check src/**/*.ts",
+    "check:version": "node scripts/check-version.js",
+    "sync:version": "node scripts/version-sync.js",
+    "prepare": "husky install"
   },
   "keywords": [
     "web3",
@@ -39,6 +47,24 @@
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "prettier": "^3.2.5",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "ts-jest": "^29.1.2"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }
