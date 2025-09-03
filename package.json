@@ -1,14 +1,29 @@
 {
   "name": "web3-error-helper",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "> 🛠️ Turn confusing Web3 errors into clear, human-friendly messages for developers and users alike.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Error: no linter specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "web3",
+    "ethereum",
+    "blockchain",
+    "error-handling",
+    "typescript"
+  ],
+  "author": "Renato Ferreira",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^24.3.0",
     "typescript": "^5.9.2"
