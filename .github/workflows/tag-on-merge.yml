@@ -140,6 +140,10 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
+      
+      - name: Authenticate with NPM
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -158,6 +162,11 @@ jobs:
           if npm view web3-error-helper@${{ env.newVersion }} version >/dev/null 2>&1; then
             echo "Version ${{ env.newVersion }} is already published to NPM, skipping publish"
             exit 0
+          fi
+          
+          # Check if package exists at all, if not, this is the first publish
+          if ! npm view web3-error-helper version >/dev/null 2>&1; then
+            echo "Package web3-error-helper not found in NPM registry, this is the first publish"
           fi
           
           pnpm publish --access public --no-git-checks
