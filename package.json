@@ -8,10 +8,15 @@
     "dist"
   ],
   "scripts": {
+    "clean": "rm -rf dist",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "clean": "rm -rf dist",
     "prebuild": "npm run clean",
+    "prepublish": "pnpm run clean && pnpm run build",
+    "version:patch": "pnpm version patch",
+    "version:minor": "pnpm version minor",
+    "version:major": "pnpm version major",
+    "publish:local": "pnpm run prepublish && pnpm publish --access public",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "echo \"Error: no linter specified\" && exit 1"
   },

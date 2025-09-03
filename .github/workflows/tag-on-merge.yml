@@ -1,0 +1,83 @@
+name: Auto Tag on Merge to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Needed to access all tags
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          git fetch --tags
+          latestTag=$(git describe --tags `git rev-list --tags --max-count=1` || echo "v0.0.0")
+          echo "latestTag=$latestTag" >> $GITHUB_ENV
+
+      - name: Analyze commits and bump version
+        id: bump
+        run: |
+          # Get commits since last tag
+          lastTag=${{ env.latestTag }}
+          commits=$(git log --pretty=format:"%s" ${lastTag}..HEAD)
+          
+          # Initialize version bump type
+          bumpType="patch"
+          
+          # Check for breaking changes (major)
+          if echo "$commits" | grep -q "BREAKING CHANGE\|!:"; then
+            bumpType="major"
+          # Check for new features (minor)
+          elif echo "$commits" | grep -q "^feat:"; then
+            bumpType="minor"
+          # Check for other types (patch)
+          elif echo "$commits" | grep -q "^fix:\|^docs:\|^style:\|^refactor:\|^test:\|^chore:"; then
+            bumpType="patch"
+          fi
+          
+          echo "bumpType=$bumpType" >> $GITHUB_ENV
+          
+          # Calculate new version
+          version=${lastTag#v}
+          IFS='.' read -r major minor patch <<< "$version"
+          
+          case $bumpType in
+            "major")
+              newVersion="$((major+1)).0.0"
+              ;;
+            "minor")
+              newVersion="$major.$((minor+1)).0"
+              ;;
+            "patch")
+              newVersion="$major.$minor.$((patch+1))"
+              ;;
+          esac
+          
+          echo "newVersion=$newVersion" >> $GITHUB_ENV
+          echo "Bumping $bumpType version: $lastTag → v$newVersion"
+
+      - name: Create and push tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git tag -a "v${{ env.newVersion }}" -m "Auto tag v${{ env.newVersion }} (${{ env.bumpType }} bump)"
+          git push origin "v${{ env.newVersion }}"

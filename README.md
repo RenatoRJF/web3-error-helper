@@ -95,27 +95,40 @@ We love contributions! 🎉 To keep the library high-quality and consistent, ple
 - **Tests required:** Always include unit tests when adding or updating error mappings.  
 - **Documentation:** Update README/examples if you add new features.
 
-Here’s how to get started:
+Here's how to get started:
 
 ### Setup
 
 ```bash
 git clone https://github.com/YOUR_GITHUB_USERNAME/web3-error-helper.git
 cd web3-error-helper
-npm install
+pnpm install
 git checkout -b feature/my-feature
+```
+
+### Development
+
+```bash
+# Build the project
+pnpm run build
+
+# Watch for changes during development
+pnpm run build:watch
+
+# Clean build output
+pnpm run clean
 ```
 
 ### Adding or Updating Errors
 
-- Add mappings inside `src/errors/`.  
+- Add mappings inside `src/errors/` directory (to be created).  
 - Keep messages **clear, concise, and user-friendly**.  
 - Follow the existing file structure (`evm.ts`, `polygon.ts`, etc.).
 
 ### Testing
 
 ```bash
-npm run test
+pnpm run test
 ```
 
 Ensure all tests pass before committing.
@@ -123,15 +136,47 @@ Ensure all tests pass before committing.
 ### Code Style
 
 - ESLint + Prettier are enforced.  
-- Run the linter: `npm run lint`
+- Run the linter: `pnpm run lint`
+
+### Commit Messages & Versioning
+
+We use **Conventional Commits** for automatic versioning. Follow these patterns:
+
+#### **Major Version Bump (Breaking Changes)**
+```bash
+git commit -m "feat!: redesign error translation API"
+git commit -m "fix: resolve critical bug
+
+BREAKING CHANGE: API interface has changed"
+```
+
+#### **Minor Version Bump (New Features)**
+```bash
+git commit -m "feat: add Polygon chain support"
+git commit -m "feat: implement custom error mappings"
+```
+
+#### **Patch Version Bump (Bug Fixes & Maintenance)**
+```bash
+git commit -m "fix: resolve gas estimation error"
+git commit -m "docs: update README examples"
+git commit -m "chore: update dependencies"
+git commit -m "test: add unit tests for error mapping"
+```
 
 ### Pull Requests
 
-- Use clear commit messages:  
-  - `feat: add Polygon custom error mapping`  
-  - `fix: correct ERC20 insufficient balance message`  
-- Open a PR with a description of your changes.  
-- Feedback may be requested before merging.
+- Use conventional commit messages (see above)
+- Open a PR with a description of your changes
+- The workflow will automatically create version tags based on your commit messages
+- Feedback may be requested before merging
+
+### Version Management
+
+The project uses automated versioning via GitHub Actions:
+- **Major bump**: `BREAKING CHANGE:` or `!:` in commit messages
+- **Minor bump**: `feat:` commits
+- **Patch bump**: `fix:`, `docs:`, `chore:`, `test:`, etc.
 
 ---
 
