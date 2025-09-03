@@ -26,7 +26,7 @@
     "format:check": "prettier --check src/**/*.ts",
     "check:version": "node scripts/check-version.js",
     "sync:version": "node scripts/version-sync.js",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "keywords": [
     "web3",
