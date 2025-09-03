@@ -43,6 +43,10 @@ jobs:
           lastTag=${{ env.latestTag }}
           commits=$(git log --pretty=format:"%s" ${lastTag}..HEAD)
           
+          # Get current package.json version
+          currentVersion=$(node -p "require('./package.json').version")
+          echo "Current package.json version: $currentVersion"
+          
           # Initialize version bump type
           bumpType="patch"
           
@@ -59,7 +63,7 @@ jobs:
           
           echo "bumpType=$bumpType" >> $GITHUB_ENV
           
-          # Calculate new version
+          # Calculate new version based on last tag
           version=${lastTag#v}
           IFS='.' read -r major minor patch <<< "$version"
           
@@ -75,11 +79,25 @@ jobs:
               ;;
           esac
           
+          # Check if package.json already has a higher version (workflow rerun scenario)
+          if [ "$(printf '%s\n' "$currentVersion" "$newVersion" | sort -V | tail -n1)" = "$currentVersion" ] && [ "$currentVersion" != "$newVersion" ]; then
+            echo "Package.json version ($currentVersion) is already higher than calculated version ($newVersion)"
+            echo "Using package.json version as the target version"
+            newVersion="$currentVersion"
+          fi
+          
           echo "newVersion=$newVersion" >> $GITHUB_ENV
           echo "Bumping $bumpType version: $lastTag → v$newVersion"
 
       - name: Update package.json version
         run: |
+          # Check if version update is needed
+          currentVersion=$(node -p "require('./package.json').version")
+          if [ "$currentVersion" = "${{ env.newVersion }}" ]; then
+            echo "Package.json already has the target version ${{ env.newVersion }}, skipping version update"
+            exit 0
+          fi
+          
           # Update package.json with new version
           npm version ${{ env.newVersion }} --no-git-tag-version
           
@@ -93,11 +111,20 @@ jobs:
           # Set up the remote URL with token
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           
+          # Pull latest changes before pushing
+          git pull origin main --rebase
+          
           # Push the version update commit
           git push origin main
 
       - name: Create and push tag
         run: |
+          # Check if tag already exists
+          if git tag -l | grep -q "^v${{ env.newVersion }}$"; then
+            echo "Tag v${{ env.newVersion }} already exists, skipping tag creation"
+            exit 0
+          fi
+          
           # Set up the remote URL with token
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           
@@ -122,4 +149,11 @@ jobs:
         run: pnpm run build
 
       - name: Publish to NPM
-        run: pnpm publish --access public --no-git-checks
+        run: |
+          # Check if version is already published
+          if npm view web3-error-helper@${{ env.newVersion }} version >/dev/null 2>&1; then
+            echo "Version ${{ env.newVersion }} is already published to NPM, skipping publish"
+            exit 0
+          fi
+          
+          pnpm publish --access public --no-git-checks
