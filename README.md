@@ -106,6 +106,28 @@ pnpm install
 git checkout -b feature/my-feature
 ```
 
+### Branch Naming Rules
+
+We enforce consistent branch naming to maintain project organization. All branches must follow this pattern:
+
+**Format:** `^(feature|fix|hotfix|release)\/[a-z0-9._-]+$`
+
+**Valid examples:**
+- `feature/user-authentication`
+- `fix/login-bug`
+- `hotfix/security-patch`
+- `release/v1.2.0`
+
+**Rules:**
+- Must start with: `feature/`, `fix/`, `hotfix/`, or `release/`
+- Use lowercase letters, numbers, dots, underscores, or hyphens only
+- No spaces or uppercase letters allowed
+
+The project includes automatic validation:
+- **Local validation:** Pre-push hook prevents invalid branch names
+- **Remote validation:** GitHub Actions validates PR branch names
+- **Manual check:** Run `npm run validate:branch` anytime
+
 ### Development
 
 ```bash

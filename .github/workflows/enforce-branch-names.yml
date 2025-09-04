@@ -1,0 +1,20 @@
+name: Enforce Branch Name
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch name
+        run: |
+          if [[ ! "${GITHUB_HEAD_REF}" =~ ^(feature|fix|hotfix|release)\/[a-z0-9._-]+$ ]]; then
+            echo "❌ Branch name '${GITHUB_HEAD_REF}' is invalid."
+            echo "Allowed: feature/*, fix/*, hotfix/*, release/*"
+            exit 1
+          fi
+          
+          echo "✅ Branch name '${GITHUB_HEAD_REF}' is valid."

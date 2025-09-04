@@ -26,6 +26,7 @@
     "format:check": "prettier --check src/**/*.ts",
     "check:version": "node scripts/check-version.js",
     "sync:version": "node scripts/version-sync.js",
+    "validate:branch": "node scripts/validate-branch-name.js",
     "prepare": "husky"
   },
   "keywords": [
