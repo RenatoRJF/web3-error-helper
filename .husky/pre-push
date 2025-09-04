@@ -3,4 +3,4 @@
 
 # Validate branch name before pushing
 echo "🔍 Validating branch name..."
-node scripts/validate-branch-name.js
+ts-node scripts/validate-branch-name.ts
