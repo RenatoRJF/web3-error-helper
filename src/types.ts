@@ -40,6 +40,50 @@ export enum SupportedChain {
 export type ChainType = 'built-in' | 'custom';
 
 /**
+ * Blockchain ecosystem types
+ */
+export type BlockchainEcosystem = 
+  | 'evm'           // Ethereum, Polygon, Arbitrum, Optimism, BSC, Avalanche, Fantom, Base
+  | 'solana'        // Solana blockchain
+  | 'cosmos'        // Cosmos SDK chains (Cosmos Hub, Osmosis, etc.)
+  | 'near'          // Near Protocol
+  | 'cardano'       // Cardano blockchain
+  | 'polkadot'      // Polkadot and Substrate-based chains
+  | 'algorand'      // Algorand blockchain
+  | 'tezos'         // Tezos blockchain
+  | 'stellar'       // Stellar blockchain
+  | 'ripple';       // Ripple (XRP) blockchain
+
+/**
+ * Chain adapter interface for different blockchain ecosystems
+ */
+export interface ChainAdapter {
+  readonly ecosystem: BlockchainEcosystem;
+  readonly name: string;
+  readonly chainId?: string | number;
+  
+  /**
+   * Extract error message from blockchain-specific error format
+   */
+  extractErrorMessage(error: unknown): string;
+  
+  /**
+   * Check if error format matches this ecosystem
+   */
+  matchesErrorFormat(error: unknown): boolean;
+  
+  /**
+   * Get ecosystem-specific error patterns
+   */
+  getErrorPatterns(): Record<string, string>;
+  
+  /**
+   * Get ecosystem-specific fallback messages
+   */
+  getFallbackMessages(): Record<string, string>;
+}
+
+/**
  * Error type detection keywords (ordered by specificity)
  */
 export const ERROR_TYPE_KEYWORDS = {
@@ -104,11 +148,14 @@ export type TranslatableError =
   | { message: string; [key: string]: any }
   | { error: { message: string; [key: string]: any } }
   | { reason: string; [key: string]: any }
-  | { data: { message: string; [key: string]: any } };
+  | { data: { message: string; [key: string]: any } }
+  | { [key: string]: any }; // Allow any object structure for blockchain-specific errors
 
 export interface TranslateErrorOptions {
   /** The blockchain network/chain */
   chain?: SupportedChain | string;
+  /** The blockchain ecosystem (evm, solana, cosmos, near) */
+  ecosystem?: BlockchainEcosystem;
   /** Custom fallback message when no translation is found */
   fallbackMessage?: string;
   /** Whether to include original error details in the output */
