@@ -18,6 +18,21 @@ export {
   clearCustomChains,
 } from './chain-registry';
 
+export {
+  EVMAdapter,
+  SolanaAdapter,
+  CosmosAdapter,
+  NearAdapter,
+  CardanoAdapter,
+  PolkadotAdapter,
+  AlgorandAdapter,
+  TezosAdapter,
+  StellarAdapter,
+  RippleAdapter,
+  AdapterRegistry,
+  adapterRegistry,
+} from './adapters';
+
 
 export type {
   TranslateErrorOptions,
@@ -33,6 +48,8 @@ export type {
   ErrorCategory,
   ChainType,
   ErrorType,
+  BlockchainEcosystem,
+  ChainAdapter,
 } from './types';
 
 export type {
