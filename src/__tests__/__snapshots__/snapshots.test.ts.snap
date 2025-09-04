@@ -1,0 +1,658 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error Translation Snapshots should handle different error types consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle different error types consistently 2`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle different error types consistently 3`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle different error types consistently 4`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle different error types consistently 5`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle options consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle options consistently 2`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle options consistently 3`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle options consistently 4`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": Any<Object>,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle options consistently 5`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle unknown errors consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle unknown errors consistently 2`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle unknown errors consistently 3`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should handle unknown errors consistently 4`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "0x01" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "0x11" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "0x12" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "0x21" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "0x22" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "0x31" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "0x41" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "0x51" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "AccessControl: account is missing role" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "ERC20: insufficient allowance" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "ERC20: transfer amount exceeds allowance" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "ERC20: transfer amount exceeds balance" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "ERC20: transfer from the zero address" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "ERC20: transfer to the zero address" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "Ownable: caller is not the owner" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "Pausable: paused" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "ReentrancyGuard: reentrant call" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "SafeMath: addition overflow" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "SafeMath: division by zero" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "SafeMath: multiplication overflow" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "SafeMath: subtraction overflow" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "Token: already minted" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "Token: nonexistent token" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "connection refused" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "contract not found" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "event not found" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "execution reverted" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "gas limit too low" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "gas price too low" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "gas required exceeds allowance" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "insufficient funds for gas" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "insufficient funds" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "intrinsic gas too low" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "invalid address" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "invalid data" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "invalid jump" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "invalid opcode" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "max fee per gas too low" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "memory out of bounds" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "network error" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "nonce too high" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "nonce too low" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "out of gas" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "rate limit exceeded" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "replacement transaction underpriced" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "revert" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "rpc error" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "service unavailable" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "stack overflow" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "stack underflow" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "timeout" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "unsupported network" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "unsupported operation" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "user denied transaction" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "user rejected the request" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "wallet disconnected" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "wallet locked" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "wallet not connected" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
+
+exports[`Error Translation Snapshots should translate "wrong network" consistently 1`] = `
+{
+  "chain": Any<String>,
+  "message": Any<String>,
+  "originalError": undefined,
+  "translated": Any<Boolean>,
+}
+`;
