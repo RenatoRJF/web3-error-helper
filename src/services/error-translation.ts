@@ -7,11 +7,12 @@
  * Acts as the central service for all error translation operations.
  */
 
-import { TranslateErrorOptions, ErrorTranslationResult, ErrorMapping, TranslatableError, SupportedChain } from '../types';
+import { TranslateErrorOptions, ErrorTranslationResult, ErrorMapping, TranslatableError, SupportedChain, BlockchainEcosystem } from '../types';
 import { loadErrorMappings } from '../mapping-loader';
 import { addCustomMappings } from '../mapping-utils';
 import { customChainRegistry } from '../chain-registry';
 import { detectErrorType } from '../utils/error-type-detection';
+import { adapterRegistry } from '../adapters';
 
 /**
  * Default fallback messages
@@ -61,30 +62,16 @@ function isErrorWithDataMessage(error: unknown): error is { data: { message: str
 }
 
 /**
- * Extract error message from different error formats
+ * Extract error message from different error formats using adapter system
  */
-export function extractErrorMessage(error: TranslatableError): string {
-  if (typeof error === 'string') {
-    return error;
-  }
+export function extractErrorMessage(error: TranslatableError, ecosystem?: BlockchainEcosystem): string {
+  // Try to detect the appropriate adapter
+  const adapter = ecosystem 
+    ? adapterRegistry.getAdapter(ecosystem) || adapterRegistry.getEVMAdapter()
+    : adapterRegistry.detectAdapter(error) || adapterRegistry.getEVMAdapter();
   
-  if (isErrorWithMessage(error)) {
-    return error.message;
-  }
-  
-  if (isErrorWithNestedError(error)) {
-    return error.error.message;
-  }
-  
-  if (isErrorWithReason(error)) {
-    return error.reason;
-  }
-  
-  if (isErrorWithDataMessage(error)) {
-    return error.data.message;
-  }
-  
-  return String(error);
+  // Use adapter to extract error message
+  return adapter.extractErrorMessage(error);
 }
 
 /**
@@ -183,10 +170,11 @@ export function translateError(
     fallbackMessage,
     includeOriginalError = false,
     customMappings = {},
+    ecosystem,
   } = options;
   
-  // Extract error message
-  const errorMessage = extractErrorMessage(error);
+  // Extract error message using appropriate adapter
+  const errorMessage = extractErrorMessage(error, ecosystem);
   
   // Check if this is a custom chain with custom fallbacks
   if (customChainRegistry.has(chain)) {
