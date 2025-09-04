@@ -40,7 +40,7 @@ jobs:
         run: |
           # Get commits since last tag
           lastTag=${{ env.latestTag }}
-          commits=$(git log --pretty=format:"%s" ${lastTag}..HEAD)
+          commits=$(git log --pretty=format:"%s%n%b" ${lastTag}..HEAD)
           
           # Get current package.json version
           currentVersion=$(node -p "require('./package.json').version")
