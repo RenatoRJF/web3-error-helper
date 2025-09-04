@@ -1,0 +1,56 @@
+{
+  "chain": "ethereum",
+  "category": "erc20",
+  "mappings": [
+    {
+      "pattern": "ERC20: transfer amount exceeds balance",
+      "message": "Insufficient token balance. You don't have enough tokens to complete this transfer.",
+      "priority": 10
+    },
+    {
+      "pattern": "ERC20: transfer amount exceeds allowance",
+      "message": "Transfer amount exceeds your approved allowance. Please increase your token allowance first.",
+      "priority": 10
+    },
+    {
+      "pattern": "ERC20: insufficient allowance",
+      "message": "Insufficient token allowance. Please approve more tokens before attempting this transaction.",
+      "priority": 10
+    },
+    {
+      "pattern": "ERC20: transfer to the zero address",
+      "message": "Cannot transfer tokens to the zero address. Please provide a valid recipient address.",
+      "priority": 10
+    },
+    {
+      "pattern": "ERC20: transfer from the zero address",
+      "message": "Cannot transfer tokens from the zero address. Please provide a valid sender address.",
+      "priority": 10
+    },
+    {
+      "pattern": "ERC20: approve from the zero address",
+      "message": "Cannot approve tokens from the zero address. Please provide a valid sender address.",
+      "priority": 10
+    },
+    {
+      "pattern": "ERC20: approve to the zero address",
+      "message": "Cannot approve tokens to the zero address. Please provide a valid spender address.",
+      "priority": 10
+    },
+    {
+      "pattern": "ERC20: decreased allowance below zero",
+      "message": "Cannot decrease allowance below zero. Please provide a valid allowance amount.",
+      "priority": 10
+    },
+    {
+      "pattern": "ERC20: burn amount exceeds balance",
+      "message": "Cannot burn more tokens than you own. Please check your token balance.",
+      "priority": 10
+    },
+    {
+      "pattern": "ERC20: mint to the zero address",
+      "message": "Cannot mint tokens to the zero address. Please provide a valid recipient address.",
+      "priority": 10
+    }
+  ]
+}

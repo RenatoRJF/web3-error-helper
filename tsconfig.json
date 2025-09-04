@@ -3,9 +3,21 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "declaration": true,
-    "target": "ES2020",
-    "module": "ESNext",
+    "target": "ES2022",
+    "module": "CommonJS",
     "moduleResolution": "Node",
-    "strict": true
-  }
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "isolatedModules": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.json"],
+  "exclude": ["examples/**/*", "dist/**/*", "node_modules/**/*", "src/**/*.test.ts", "src/**/__tests__/**/*"]
 }

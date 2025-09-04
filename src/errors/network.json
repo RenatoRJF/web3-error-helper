@@ -1,0 +1,46 @@
+{
+  "chain": "ethereum",
+  "category": "network",
+  "mappings": [
+    {
+      "pattern": "network error",
+      "message": "Network connection error. Please check your internet connection and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "timeout",
+      "message": "Request timed out. The network may be congested. Please try again in a few moments.",
+      "priority": 10
+    },
+    {
+      "pattern": "connection refused",
+      "message": "Connection to the blockchain network was refused. Please try again later.",
+      "priority": 10
+    },
+    {
+      "pattern": "rate limit exceeded",
+      "message": "Too many requests. Please wait a moment before trying again.",
+      "priority": 10
+    },
+    {
+      "pattern": "service unavailable",
+      "message": "Blockchain service is temporarily unavailable. Please try again later.",
+      "priority": 10
+    },
+    {
+      "pattern": "invalid response",
+      "message": "Received an invalid response from the network. Please try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "rpc error",
+      "message": "RPC (Remote Procedure Call) error occurred. Please try again or contact support if the issue persists.",
+      "priority": 10
+    },
+    {
+      "pattern": "node not responding",
+      "message": "Blockchain node is not responding. Please try again or switch to a different RPC endpoint.",
+      "priority": 10
+    }
+  ]
+}

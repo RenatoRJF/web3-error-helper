@@ -13,22 +13,75 @@
 Get started in seconds:
 
 ```ts
-import { translateError, addErrorMap } from "web3-error-helper";
-
-// Optional: add custom error mapping for a specific chain
-addErrorMap("polygon", {
-  "execution reverted: custom error": "Polygon-specific failure."
-});
+import { translateError } from "web3-error-helper";
 
 try {
   await contract.transfer(to, amount);
 } catch (err) {
-  console.error(translateError(err, { chain: "polygon" }));
+  const result = translateError(err, { 
+    chain: "polygon",
+    customMappings: {
+      "execution reverted: custom error": "Polygon-specific failure."
+    }
+  });
+  console.error(result.message);
   // -> "Polygon-specific failure." or a human-readable default
 }
 ```
 
 No setup required—just wrap your calls, and your errors are instantly readable.
+
+## 🎯 Advanced Usage
+
+### Custom Chain Support
+Register your own blockchain networks with custom error mappings:
+
+```ts
+import { registerCustomChain, translateError } from "web3-error-helper";
+
+// Register a custom chain
+registerCustomChain({
+  chainId: 'my-custom-chain',
+  name: 'My Custom Chain',
+  isEVMCompatible: true,
+  errorMappings: [
+    {
+      pattern: 'custom error pattern',
+      message: 'Custom error message for your chain',
+      priority: 15
+    }
+  ],
+  customFallbacks: {
+    generic: 'Custom chain error occurred',
+    network: 'Custom chain network issue',
+    wallet: 'Custom chain wallet error'
+  }
+});
+
+// Use with custom chain
+const result = translateError(error, { chain: 'my-custom-chain' });
+```
+
+### Error Categories & Advanced Options
+```ts
+import { translateError, SupportedChain } from "web3-error-helper";
+
+const result = translateError(error, {
+  chain: SupportedChain.POLYGON,
+  fallbackMessage: 'Custom fallback message',
+  includeOriginalError: true,
+  customMappings: {
+    'specific error': 'Custom translation'
+  }
+});
+
+console.log(result.message);        // Human-readable message
+console.log(result.translated);     // Whether it was translated
+console.log(result.chain);          // Chain used
+console.log(result.originalError);  // Original error (if requested)
+```
+
+> 📚 **Complete Examples:** Check out the [`examples/`](./examples/) directory for comprehensive usage examples including custom chains, advanced error handling, and real-world scenarios.
 
 ---
 
@@ -38,49 +91,64 @@ No setup required—just wrap your calls, and your errors are instantly readable
 - **Plug & Play** – Wrap `try/catch` blocks or RPC calls without extra setup.  
 - **Extensible** – Add your own custom error mappings per project.  
 - **Multi-chain support** – Works across EVM-compatible chains (Ethereum, Polygon, Arbitrum, Optimism, etc.).  
-- **TypeScript-first** – Fully typed for safety and autocomplete.
+- **Custom chain support** – Register and manage custom blockchain networks with their own error mappings.
+- **TypeScript-first** – Fully typed for safety and autocomplete with modern ES2022 features.
+- **Modern JavaScript** – Built with latest JS/TS features: nullish coalescing, optional chaining, and strict type checking.
 
 ---
 
 ## 🚀 Installation
 
+**Requirements:** Node.js 18.0.0 or higher
+
 ```bash
 npm install web3-error-helper
 # or
 yarn add web3-error-helper
+# or
+pnpm add web3-error-helper
 ```
+
+> 📋 **Compatibility:** See [COMPATIBILITY.md](./COMPATIBILITY.md) for detailed Node.js version support and migration guide.
 
 ---
 
 ## 🔮 Roadmap
 
-### Expand error dictionary
-- [ ] ERC20 token errors  
-- [ ] ERC721 token errors  
-- [ ] Gas estimation & nonce errors  
-- [ ] Wallet connection & transaction errors  
+### ✅ Completed Features
+- [x] **Error translation system** – Core functionality for translating EVM errors
+- [x] **Multi-chain support** – Built-in support for Ethereum, Polygon, Arbitrum, Optimism, BSC, Avalanche, Fantom, Base
+- [x] **Custom chain support** – Register and manage custom blockchain networks with full error mapping support
+- [x] **Error categories** – Organized error mappings (ERC20, gas, wallet, network, transaction, contract, EVM)
+- [x] **TypeScript support** – Full type safety and modern ES2024 features
+- [x] **Regex pattern matching** – Advanced error pattern recognition with priority-based matching
+- [x] **Configurable fallbacks** – Chain-specific fallback messages with intelligent error type detection
+- [x] **Chain management** – Comprehensive chain discovery, validation, and statistics
+- [x] **Error type detection** – Automatic categorization of errors (network, wallet, contract, gas, transaction)
+- [x] **Modern architecture** – Clean separation of concerns with modular design
 
-### Multi-chain support
+### 📋 Planned Features
 
-**EVM chains (existing, partially supported)**
-- [ ] Polygon  
-- [ ] Arbitrum  
-- [ ] Optimism  
+**Core improvements**
+- [ ] **Enhanced error dictionary** – More comprehensive error mappings
+- [ ] **Performance optimizations** – Caching and faster pattern matching
 
-**Non-EVM chains (planned)**
-- [ ] Solana adapter  
-- [ ] Cosmos adapter  
-
-### Framework components
+**Framework components**
 - [ ] React `<ErrorMessage />`  
 - [ ] Vue `<ErrorMessage />`  
 - [ ] Svelte `<ErrorMessage />`  
 - [ ] Angular `<ErrorMessage />`  
 - [ ] Web Component `<web3-error-message>`  
 
-### Other features
+**Non-EVM chains**
+- [ ] Solana adapter  
+- [ ] Cosmos adapter  
+
+**Other features**
 - [ ] i18n (multi-language support)
-- [ ] Error analytics (optional logging/monitoring)  
+- [ ] Error analytics (optional logging/monitoring)
+- [ ] Error severity levels
+- [ ] Custom error formatting  
 
 ---
 
@@ -99,12 +167,16 @@ Here's how to get started:
 
 ### Setup
 
+**Requirements:** Node.js 18.0.0 or higher
+
 ```bash
 git clone https://github.com/YOUR_GITHUB_USERNAME/web3-error-helper.git
 cd web3-error-helper
 pnpm install
 git checkout -b feature/my-feature
 ```
+
+> 💡 **Node.js Version:** Use `nvm use` to automatically switch to the correct Node.js version (specified in `.nvmrc`).
 
 ### Branch Naming Rules
 
@@ -143,9 +215,10 @@ pnpm run clean
 
 ### Adding or Updating Errors
 
-- Add mappings inside `src/errors/` directory (to be created).  
+- Add mappings inside `src/errors/` directory (JSON files for each category).  
 - Keep messages **clear, concise, and user-friendly**.  
-- Follow the existing file structure (`evm.ts`, `polygon.ts`, etc.).
+- Follow the existing file structure (`erc20.json`, `gas.json`, `wallet.json`, etc.).
+- Use the `addCustomMappings` function for runtime custom mappings.
 
 ### Testing
 
@@ -159,6 +232,8 @@ Ensure all tests pass before committing.
 
 - ESLint + Prettier are enforced.  
 - Run the linter: `pnpm run lint`
+- Modern JavaScript/TypeScript features are used throughout the codebase
+- Follow ES2022 standards and TypeScript strict mode
 
 ### Commit Messages & Versioning
 

@@ -1,0 +1,56 @@
+{
+  "chain": "ethereum",
+  "category": "contract",
+  "mappings": [
+    {
+      "pattern": "Ownable: caller is not the owner",
+      "message": "Function can only be called by the contract owner. Please contact the contract owner to perform this action.",
+      "priority": 10
+    },
+    {
+      "pattern": "Pausable: paused",
+      "message": "Contract is paused. This action cannot be executed at this time. Please try again later.",
+      "priority": 10
+    },
+    {
+      "pattern": "Token: already minted",
+      "message": "Token has already been minted for this account. Each account can only mint once.",
+      "priority": 10
+    },
+    {
+      "pattern": "Token: nonexistent token",
+      "message": "Token does not exist. Please check the token ID and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "SafeMath: addition overflow",
+      "message": "Arithmetic addition overflow. The result is too large to be stored.",
+      "priority": 10
+    },
+    {
+      "pattern": "SafeMath: subtraction overflow",
+      "message": "Arithmetic subtraction underflow. Cannot subtract a larger number from a smaller one.",
+      "priority": 10
+    },
+    {
+      "pattern": "SafeMath: multiplication overflow",
+      "message": "Arithmetic multiplication overflow. The result is too large to be stored.",
+      "priority": 10
+    },
+    {
+      "pattern": "SafeMath: division by zero",
+      "message": "Division by zero is not allowed. Please check the divisor value.",
+      "priority": 10
+    },
+    {
+      "pattern": "ReentrancyGuard: reentrant call",
+      "message": "Reentrant call detected. The function is already being executed and cannot be called again.",
+      "priority": 10
+    },
+    {
+      "pattern": "AccessControl: account is missing role",
+      "message": "Account is missing the required role to perform this action. Please contact an administrator.",
+      "priority": 10
+    }
+  ]
+}

@@ -1,19 +1,24 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
 const fs = require('fs');
 const { execSync } = require('child_process');
 
+interface PackageJson {
+  version: string;
+  [key: string]: any;
+}
+
 /**
  * Check if package.json version matches the latest git tag
  */
-function checkVersionSync() {
+function checkVersionSync(): void {
   try {
     // Read package.json version
-    const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+    const packageJson: PackageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
     const packageVersion = packageJson.version;
     
     // Get latest git tag
-    let latestTag;
+    let latestTag: string;
     try {
       const tagOutput = execSync('git describe --tags --abbrev=0', { encoding: 'utf8' });
       latestTag = tagOutput.trim().replace(/^v/, ''); // Remove 'v' prefix
@@ -43,7 +48,7 @@ function checkVersionSync() {
     console.log('✅ Version sync check passed!');
     
   } catch (error) {
-    console.error('❌ Error checking version sync:', error.message);
+    console.error('❌ Error checking version sync:', (error as Error).message);
     process.exit(1);
   }
 }

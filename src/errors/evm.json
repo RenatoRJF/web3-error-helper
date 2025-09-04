@@ -1,0 +1,76 @@
+{
+  "chain": "ethereum",
+  "category": "evm",
+  "mappings": [
+    {
+      "pattern": "invalid opcode",
+      "message": "An invalid operation was executed. This may indicate a contract bug or compatibility issue.",
+      "priority": 10
+    },
+    {
+      "pattern": "revert",
+      "message": "The execution was reverted by the EVM. Please check the transaction parameters and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "stack overflow",
+      "message": "Too many items on the EVM stack. This may indicate a contract execution issue.",
+      "priority": 10
+    },
+    {
+      "pattern": "stack underflow",
+      "message": "Not enough items on the EVM stack. This may indicate a contract execution issue.",
+      "priority": 10
+    },
+    {
+      "pattern": "invalid jump",
+      "message": "The program counter jumped to an invalid location. This may indicate a contract bug.",
+      "priority": 10
+    },
+    {
+      "pattern": "memory out of bounds",
+      "message": "Accessed memory outside allocated space. This may indicate a contract execution issue.",
+      "priority": 10
+    },
+    {
+      "pattern": "0x01",
+      "message": "Assertion failed. A condition that should never be false was violated.",
+      "priority": 15
+    },
+    {
+      "pattern": "0x11",
+      "message": "Arithmetic overflow or underflow occurred. Please check the calculation values.",
+      "priority": 15
+    },
+    {
+      "pattern": "0x12",
+      "message": "Division or modulo by zero. Please check the calculation values.",
+      "priority": 15
+    },
+    {
+      "pattern": "0x21",
+      "message": "Invalid enum value conversion. Please check the enum value being used.",
+      "priority": 15
+    },
+    {
+      "pattern": "0x22",
+      "message": "Storage byte array overflow. The byte array is too large for storage.",
+      "priority": 15
+    },
+    {
+      "pattern": "0x31",
+      "message": "Pop on empty array. Cannot remove items from an empty array.",
+      "priority": 15
+    },
+    {
+      "pattern": "0x41",
+      "message": "Memory allocation overflow. Too much memory was requested.",
+      "priority": 15
+    },
+    {
+      "pattern": "0x51",
+      "message": "Zero-initialized internal function call. Function pointer is null.",
+      "priority": 15
+    }
+  ]
+}
