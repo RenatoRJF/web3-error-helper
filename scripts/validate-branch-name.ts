@@ -1,4 +1,11 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
+
+const { execSync } = require('child_process');
+
+interface ValidationResult {
+  valid: boolean;
+  message: string;
+}
 
 /**
  * Branch name validation script
@@ -8,18 +15,16 @@
  * - Pattern: ^(feature|fix|hotfix|release)\/[a-z0-9._-]+$
  */
 
-const { execSync } = require('child_process');
-
-function getCurrentBranch() {
+function getCurrentBranch(): string {
   try {
     return execSync('git branch --show-current', { encoding: 'utf8' }).trim();
   } catch (error) {
-    console.error('❌ Error getting current branch:', error.message);
+    console.error('❌ Error getting current branch:', (error as Error).message);
     process.exit(1);
   }
 }
 
-function validateBranchName(branchName) {
+function validateBranchName(branchName: string): ValidationResult {
   // Skip validation for main/master branches
   if (branchName === 'main' || branchName === 'master') {
     return { valid: true, message: 'Main branch - skipping validation' };
@@ -46,7 +51,7 @@ function validateBranchName(branchName) {
   return { valid: true, message: `Branch name '${branchName}' is valid.` };
 }
 
-function main() {
+function main(): void {
   const branchName = getCurrentBranch();
   const validation = validateBranchName(branchName);
 
