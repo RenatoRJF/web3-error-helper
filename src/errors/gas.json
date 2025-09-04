@@ -1,0 +1,51 @@
+{
+  "chain": "ethereum",
+  "category": "gas",
+  "mappings": [
+    {
+      "pattern": "out of gas",
+      "message": "Transaction ran out of gas. Please increase your gas limit and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "gas required exceeds allowance",
+      "message": "Transaction requires more gas than you've allocated. Please increase your gas limit.",
+      "priority": 10
+    },
+    {
+      "pattern": "gas price too low",
+      "message": "Gas price is too low for current network conditions. Please increase your gas price.",
+      "priority": 10
+    },
+    {
+      "pattern": "gas limit too low",
+      "message": "Gas limit is too low for this transaction. Please increase your gas limit.",
+      "priority": 10
+    },
+    {
+      "pattern": "insufficient funds for gas",
+      "message": "Insufficient ETH balance to pay for gas fees. Please add more ETH to your wallet.",
+      "priority": 10
+    },
+    {
+      "pattern": "insufficient funds",
+      "message": "Not enough ETH to cover gas fees and transaction value. Please add more ETH to your wallet.",
+      "priority": 10
+    },
+    {
+      "pattern": "max fee per gas too low",
+      "message": "Max fee per gas is too low for current network conditions. Please increase your gas price.",
+      "priority": 10
+    },
+    {
+      "pattern": "intrinsic gas too low",
+      "message": "Transaction intrinsic gas is too low. Please increase your gas limit.",
+      "priority": 10
+    },
+    {
+      "pattern": "code store out of gas",
+      "message": "Insufficient gas to store contract code. Please increase your gas limit.",
+      "priority": 10
+    }
+  ]
+}

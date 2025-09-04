@@ -1,0 +1,61 @@
+{
+  "chain": "ethereum",
+  "category": "transaction",
+  "mappings": [
+    {
+      "pattern": "nonce too low",
+      "message": "Transaction nonce is too low. Please wait for previous transactions to be processed or reset your nonce.",
+      "priority": 10
+    },
+    {
+      "pattern": "nonce too high",
+      "message": "Transaction nonce is too high. Please check your transaction history and use the correct nonce.",
+      "priority": 10
+    },
+    {
+      "pattern": "replacement transaction underpriced",
+      "message": "Replacement transaction gas price is too low. Please increase your gas price to replace the pending transaction.",
+      "priority": 10
+    },
+    {
+      "pattern": "replacement underpriced",
+      "message": "Replacement transaction gas price is too low. Please increase your gas price to replace the pending transaction.",
+      "priority": 10
+    },
+    {
+      "pattern": "transaction underpriced",
+      "message": "Transaction gas price is too low for current network conditions. Please increase your gas price.",
+      "priority": 10
+    },
+    {
+      "pattern": "invalid address",
+      "message": "Provided Ethereum address is invalid. Please check the address format and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "invalid data",
+      "message": "Transaction data is invalid. Please check the transaction parameters and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "execution reverted",
+      "message": "Transaction execution was reverted. Please check the transaction details and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "contract not found",
+      "message": "Target smart contract does not exist at the specified address. Please verify the contract address.",
+      "priority": 10
+    },
+    {
+      "pattern": "event not found",
+      "message": "Event not found in transaction logs. Please check the event signature and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "unsupported operation",
+      "message": "Operation not supported by the EVM or provider. Please check the operation and try again.",
+      "priority": 10
+    }
+  ]
+}

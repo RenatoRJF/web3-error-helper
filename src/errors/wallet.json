@@ -1,0 +1,56 @@
+{
+  "chain": "ethereum",
+  "category": "wallet",
+  "mappings": [
+    {
+      "pattern": "user rejected the request",
+      "message": "Transaction was rejected by the user. Please try again and confirm the transaction in your wallet.",
+      "priority": 10
+    },
+    {
+      "pattern": "user denied transaction",
+      "message": "Transaction was denied by the user. Please approve the transaction in your wallet to continue.",
+      "priority": 10
+    },
+    {
+      "pattern": "wallet not connected",
+      "message": "Wallet is not connected. Please connect your wallet and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "wallet disconnected",
+      "message": "Wallet has been disconnected. Please reconnect your wallet and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "wallet locked",
+      "message": "Wallet is locked. Please unlock your wallet and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "wallet not found",
+      "message": "No wallet detected. Please install a compatible wallet (MetaMask, WalletConnect, etc.) and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "wrong network",
+      "message": "You're connected to the wrong network. Please switch to the correct network in your wallet.",
+      "priority": 10
+    },
+    {
+      "pattern": "unsupported network",
+      "message": "This network is not supported. Please switch to a supported network in your wallet.",
+      "priority": 10
+    },
+    {
+      "pattern": "account not found",
+      "message": "Account not found. Please check your wallet connection and try again.",
+      "priority": 10
+    },
+    {
+      "pattern": "signature verification failed",
+      "message": "Signature verification failed. Please try signing the transaction again.",
+      "priority": 10
+    }
+  ]
+}
