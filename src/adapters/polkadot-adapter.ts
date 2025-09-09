@@ -27,12 +27,12 @@ export class PolkadotAdapter extends BaseChainAdapter {
 
     if (error && typeof error === 'object') {
       const errorObj = error as Record<string, unknown>;
-      
+
       // Polkadot API error format
       if (typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       // Substrate runtime error format
       if (errorObj.error && typeof errorObj.error === 'object') {
         const innerError = errorObj.error as Record<string, unknown>;
@@ -40,29 +40,44 @@ export class PolkadotAdapter extends BaseChainAdapter {
           return innerError.message;
         }
       }
-      
+
       // Extrinsic error format
-      if (errorObj.ExtrinsicFailed && typeof errorObj.ExtrinsicFailed === 'object') {
-        const extrinsicFailed = errorObj.ExtrinsicFailed as Record<string, unknown>;
-        if (typeof extrinsicFailed.DispatchError === 'object' && extrinsicFailed.DispatchError !== null) {
-          const dispatchError = extrinsicFailed.DispatchError as Record<string, unknown>;
+      if (
+        errorObj.ExtrinsicFailed &&
+        typeof errorObj.ExtrinsicFailed === 'object'
+      ) {
+        const extrinsicFailed = errorObj.ExtrinsicFailed as Record<
+          string,
+          unknown
+        >;
+        if (
+          typeof extrinsicFailed.DispatchError === 'object' &&
+          extrinsicFailed.DispatchError !== null
+        ) {
+          const dispatchError = extrinsicFailed.DispatchError as Record<
+            string,
+            unknown
+          >;
           if (typeof dispatchError.BadOrigin === 'string') {
-            return 'Bad origin: ' + dispatchError.BadOrigin;
+            return `Bad origin: ${dispatchError.BadOrigin}`;
           }
-          if (typeof dispatchError.Module === 'object' && dispatchError.Module !== null) {
+          if (
+            typeof dispatchError.Module === 'object' &&
+            dispatchError.Module !== null
+          ) {
             const module = dispatchError.Module as Record<string, unknown>;
             if (typeof module.error === 'string') {
-              return 'Module error: ' + module.error;
+              return `Module error: ${module.error}`;
             }
           }
         }
       }
-      
+
       // Balance error format
       if (errorObj.BalanceTooLow) {
         return 'Insufficient balance for transaction';
       }
-      
+
       if (errorObj.ExistenceRequired) {
         return 'Account existence required';
       }
@@ -88,8 +103,6 @@ export class PolkadotAdapter extends BaseChainAdapter {
     }
 
     if (error && typeof error === 'object') {
-      const errorObj = error as Record<string, unknown>;
-      
       // Check for Polkadot-specific properties
       return (
         this.hasErrorProperty(error, 'ExtrinsicFailed') ||
@@ -111,12 +124,12 @@ export class PolkadotAdapter extends BaseChainAdapter {
       'insufficient balance': 'Insufficient balance for transaction',
       'extrinsic failed': 'Transaction extrinsic failed',
       'bad origin': 'Invalid transaction origin',
-      'substrate': 'Substrate runtime error occurred',
-      'polkadot': 'Polkadot blockchain error occurred',
-      'parachain': 'Parachain error occurred',
+      substrate: 'Substrate runtime error occurred',
+      polkadot: 'Polkadot blockchain error occurred',
+      parachain: 'Parachain error occurred',
       'module error': 'Substrate module execution failed',
       'existence required': 'Account existence required',
-      'balance too low': 'Insufficient balance for operation'
+      'balance too low': 'Insufficient balance for operation',
     };
   }
 
@@ -127,10 +140,11 @@ export class PolkadotAdapter extends BaseChainAdapter {
     return {
       network: 'Polkadot network error occurred. Please check your connection.',
       gas: 'Transaction fee estimation failed. Please try again.',
-      wallet: 'Polkadot wallet error occurred. Please check your wallet connection.',
+      wallet:
+        'Polkadot wallet error occurred. Please check your wallet connection.',
       contract: 'Polkadot runtime execution failed.',
       transaction: 'Polkadot transaction failed. Please try again.',
-      evm: 'Polkadot blockchain error occurred.'
+      evm: 'Polkadot blockchain error occurred.',
     };
   }
 }

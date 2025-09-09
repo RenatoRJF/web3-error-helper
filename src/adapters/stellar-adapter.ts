@@ -28,12 +28,12 @@ export class StellarAdapter extends BaseChainAdapter {
 
     if (error && typeof error === 'object') {
       const errorObj = error as Record<string, unknown>;
-      
+
       // Stellar API error format
       if (typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       // Stellar transaction error format
       if (errorObj.error && typeof errorObj.error === 'object') {
         const innerError = errorObj.error as Record<string, unknown>;
@@ -41,15 +41,18 @@ export class StellarAdapter extends BaseChainAdapter {
           return innerError.message;
         }
       }
-      
+
       // Stellar operation error format
-      if (errorObj.operation_error && typeof errorObj.operation_error === 'object') {
+      if (
+        errorObj.operation_error &&
+        typeof errorObj.operation_error === 'object'
+      ) {
         const opError = errorObj.operation_error as Record<string, unknown>;
         if (typeof opError.code === 'string') {
           return `Operation error: ${opError.code}`;
         }
       }
-      
+
       // Stellar result error format
       if (errorObj.result && typeof errorObj.result === 'object') {
         const result = errorObj.result as Record<string, unknown>;
@@ -57,9 +60,12 @@ export class StellarAdapter extends BaseChainAdapter {
           return result.result;
         }
       }
-      
+
       // Stellar horizon error format
-      if (errorObj.horizon_error && typeof errorObj.horizon_error === 'string') {
+      if (
+        errorObj.horizon_error &&
+        typeof errorObj.horizon_error === 'string'
+      ) {
         return errorObj.horizon_error;
       }
     }
@@ -84,8 +90,6 @@ export class StellarAdapter extends BaseChainAdapter {
     }
 
     if (error && typeof error === 'object') {
-      const errorObj = error as Record<string, unknown>;
-      
       // Check for Stellar-specific properties
       return (
         this.hasErrorProperty(error, 'operation_error') ||
@@ -106,14 +110,14 @@ export class StellarAdapter extends BaseChainAdapter {
     return {
       'insufficient balance': 'Insufficient XLM balance for transaction',
       'operation failed': 'Stellar operation failed',
-      'stellar': 'Stellar blockchain error occurred',
-      'horizon': 'Stellar Horizon API error occurred',
-      'xlm': 'Stellar Lumens (XLM) error occurred',
-      'trustline': 'Trustline operation failed',
+      stellar: 'Stellar blockchain error occurred',
+      horizon: 'Stellar Horizon API error occurred',
+      xlm: 'Stellar Lumens (XLM) error occurred',
+      trustline: 'Trustline operation failed',
       'account not found': 'Account does not exist on Stellar',
       'invalid signature': 'Transaction signature is invalid',
       'sequence number': 'Invalid sequence number',
-      'fee too small': 'Transaction fee is too small'
+      'fee too small': 'Transaction fee is too small',
     };
   }
 
@@ -124,10 +128,11 @@ export class StellarAdapter extends BaseChainAdapter {
     return {
       network: 'Stellar network error occurred. Please check your connection.',
       gas: 'Transaction fee estimation failed. Please try again.',
-      wallet: 'Stellar wallet error occurred. Please check your wallet connection.',
+      wallet:
+        'Stellar wallet error occurred. Please check your wallet connection.',
       contract: 'Stellar smart contract execution failed.',
       transaction: 'Stellar transaction failed. Please try again.',
-      evm: 'Stellar blockchain error occurred.'
+      evm: 'Stellar blockchain error occurred.',
     };
   }
 }

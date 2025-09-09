@@ -28,12 +28,12 @@ export class RippleAdapter extends BaseChainAdapter {
 
     if (error && typeof error === 'object') {
       const errorObj = error as Record<string, unknown>;
-      
+
       // Ripple API error format
       if (typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       // Ripple transaction error format
       if (errorObj.error && typeof errorObj.error === 'object') {
         const innerError = errorObj.error as Record<string, unknown>;
@@ -41,7 +41,7 @@ export class RippleAdapter extends BaseChainAdapter {
           return innerError.message;
         }
       }
-      
+
       // Ripple result error format
       if (errorObj.result && typeof errorObj.result === 'object') {
         const result = errorObj.result as Record<string, unknown>;
@@ -52,15 +52,18 @@ export class RippleAdapter extends BaseChainAdapter {
           return result.error_message;
         }
       }
-      
+
       // Ripple transaction result error format
-      if (errorObj.transaction_result && typeof errorObj.transaction_result === 'object') {
+      if (
+        errorObj.transaction_result &&
+        typeof errorObj.transaction_result === 'object'
+      ) {
         const txResult = errorObj.transaction_result as Record<string, unknown>;
         if (typeof txResult.result === 'string') {
           return `Transaction result: ${txResult.result}`;
         }
       }
-      
+
       // Ripple ledger error format
       if (errorObj.ledger_error && typeof errorObj.ledger_error === 'string') {
         return errorObj.ledger_error;
@@ -87,8 +90,6 @@ export class RippleAdapter extends BaseChainAdapter {
     }
 
     if (error && typeof error === 'object') {
-      const errorObj = error as Record<string, unknown>;
-      
       // Check for Ripple-specific properties
       return (
         this.hasErrorProperty(error, 'transaction_result') ||
@@ -108,15 +109,15 @@ export class RippleAdapter extends BaseChainAdapter {
   getErrorPatterns(): Record<string, string> {
     return {
       'insufficient funds': 'Insufficient XRP balance for transaction',
-      'ripple': 'Ripple blockchain error occurred',
-      'xrp': 'XRP Ledger error occurred',
-      'ledger': 'XRP Ledger error occurred',
-      'payment': 'Ripple payment failed',
-      'trustline': 'Trustline operation failed',
+      ripple: 'Ripple blockchain error occurred',
+      xrp: 'XRP Ledger error occurred',
+      ledger: 'XRP Ledger error occurred',
+      payment: 'Ripple payment failed',
+      trustline: 'Trustline operation failed',
       'account not found': 'Account does not exist on XRP Ledger',
       'invalid signature': 'Transaction signature is invalid',
       'sequence number': 'Invalid sequence number',
-      'fee too small': 'Transaction fee is too small'
+      'fee too small': 'Transaction fee is too small',
     };
   }
 
@@ -127,10 +128,11 @@ export class RippleAdapter extends BaseChainAdapter {
     return {
       network: 'Ripple network error occurred. Please check your connection.',
       gas: 'Transaction fee estimation failed. Please try again.',
-      wallet: 'Ripple wallet error occurred. Please check your wallet connection.',
+      wallet:
+        'Ripple wallet error occurred. Please check your wallet connection.',
       contract: 'Ripple smart contract execution failed.',
       transaction: 'Ripple transaction failed. Please try again.',
-      evm: 'Ripple blockchain error occurred.'
+      evm: 'Ripple blockchain error occurred.',
     };
   }
 }

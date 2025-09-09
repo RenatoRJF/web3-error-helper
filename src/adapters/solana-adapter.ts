@@ -27,7 +27,7 @@ export class SolanaAdapter extends BaseChainAdapter {
 
     if (error && typeof error === 'object') {
       const errorObj = error as Record<string, unknown>;
-      
+
       // Solana RPC error format
       if (errorObj.data && typeof errorObj.data === 'object') {
         const data = errorObj.data as Record<string, unknown>;
@@ -38,12 +38,12 @@ export class SolanaAdapter extends BaseChainAdapter {
           }
         }
       }
-      
+
       // Solana program error format
       if (typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       // Solana transaction error format
       if (errorObj.error && typeof errorObj.error === 'object') {
         const innerError = errorObj.error as Record<string, unknown>;
@@ -51,10 +51,13 @@ export class SolanaAdapter extends BaseChainAdapter {
           return innerError.message;
         }
       }
-      
+
       // Solana instruction error format
-      if (errorObj.InstructionError && Array.isArray(errorObj.InstructionError)) {
-        const [index, instructionError] = errorObj.InstructionError;
+      if (
+        errorObj.InstructionError &&
+        Array.isArray(errorObj.InstructionError)
+      ) {
+        const [, instructionError] = errorObj.InstructionError;
         if (typeof instructionError === 'object' && instructionError !== null) {
           const err = instructionError as Record<string, unknown>;
           if (typeof err.Custom === 'number') {
@@ -84,8 +87,6 @@ export class SolanaAdapter extends BaseChainAdapter {
     }
 
     if (error && typeof error === 'object') {
-      const errorObj = error as Record<string, unknown>;
-      
       // Check for Solana-specific properties
       return (
         this.hasErrorProperty(error, 'InstructionError') ||
@@ -113,7 +114,7 @@ export class SolanaAdapter extends BaseChainAdapter {
       'duplicate signature': 'Transaction signature already exists',
       'invalid account owner': 'Account owner is invalid',
       'account already in use': 'Account is already in use',
-      'invalid account data': 'Account data is invalid'
+      'invalid account data': 'Account data is invalid',
     };
   }
 
@@ -124,10 +125,11 @@ export class SolanaAdapter extends BaseChainAdapter {
     return {
       network: 'Solana network error occurred. Please check your connection.',
       gas: 'Transaction fee estimation failed. Please try again.',
-      wallet: 'Solana wallet error occurred. Please check your wallet connection.',
+      wallet:
+        'Solana wallet error occurred. Please check your wallet connection.',
       contract: 'Solana program execution failed.',
       transaction: 'Solana transaction failed. Please try again.',
-      evm: 'Solana blockchain error occurred.'
+      evm: 'Solana blockchain error occurred.',
     };
   }
 }

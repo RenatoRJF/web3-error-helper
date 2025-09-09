@@ -28,12 +28,12 @@ export class TezosAdapter extends BaseChainAdapter {
 
     if (error && typeof error === 'object') {
       const errorObj = error as Record<string, unknown>;
-      
+
       // Tezos API error format
       if (typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       // Tezos operation error format
       if (errorObj.error && typeof errorObj.error === 'object') {
         const innerError = errorObj.error as Record<string, unknown>;
@@ -41,22 +41,34 @@ export class TezosAdapter extends BaseChainAdapter {
           return innerError.message;
         }
       }
-      
+
       // Michelson execution error format
-      if (errorObj.michelson_error && typeof errorObj.michelson_error === 'object') {
-        const michelsonError = errorObj.michelson_error as Record<string, unknown>;
+      if (
+        errorObj.michelson_error &&
+        typeof errorObj.michelson_error === 'object'
+      ) {
+        const michelsonError = errorObj.michelson_error as Record<
+          string,
+          unknown
+        >;
         if (typeof michelsonError.message === 'string') {
           return michelsonError.message;
         }
       }
-      
+
       // Tezos validation error format
-      if (errorObj.validation_error && typeof errorObj.validation_error === 'string') {
+      if (
+        errorObj.validation_error &&
+        typeof errorObj.validation_error === 'string'
+      ) {
         return errorObj.validation_error;
       }
-      
+
       // Tezos network error format
-      if (errorObj.network_error && typeof errorObj.network_error === 'string') {
+      if (
+        errorObj.network_error &&
+        typeof errorObj.network_error === 'string'
+      ) {
         return errorObj.network_error;
       }
     }
@@ -81,8 +93,6 @@ export class TezosAdapter extends BaseChainAdapter {
     }
 
     if (error && typeof error === 'object') {
-      const errorObj = error as Record<string, unknown>;
-      
       // Check for Tezos-specific properties
       return (
         this.hasErrorProperty(error, 'michelson_error') ||
@@ -104,12 +114,12 @@ export class TezosAdapter extends BaseChainAdapter {
       'insufficient balance': 'Insufficient XTZ balance for transaction',
       'script failed': 'Michelson smart contract execution failed',
       'invalid operation': 'Invalid Tezos operation',
-      'tezos': 'Tezos blockchain error occurred',
-      'michelson': 'Michelson execution error occurred',
-      'xtz': 'Tezos token error occurred',
+      tezos: 'Tezos blockchain error occurred',
+      michelson: 'Michelson execution error occurred',
+      xtz: 'Tezos token error occurred',
       'account not found': 'Account does not exist on Tezos',
       'contract not found': 'Smart contract not found',
-      'fee too small': 'Operation fee is too small'
+      'fee too small': 'Operation fee is too small',
     };
   }
 
@@ -120,10 +130,11 @@ export class TezosAdapter extends BaseChainAdapter {
     return {
       network: 'Tezos network error occurred. Please check your connection.',
       gas: 'Operation fee estimation failed. Please try again.',
-      wallet: 'Tezos wallet error occurred. Please check your wallet connection.',
+      wallet:
+        'Tezos wallet error occurred. Please check your wallet connection.',
       contract: 'Tezos smart contract execution failed.',
       transaction: 'Tezos operation failed. Please try again.',
-      evm: 'Tezos blockchain error occurred.'
+      evm: 'Tezos blockchain error occurred.',
     };
   }
 }

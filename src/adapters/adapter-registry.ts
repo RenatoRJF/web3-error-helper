@@ -66,7 +66,11 @@ export class AdapterRegistry {
       this.evmAdapters.set(chainId, new EVMAdapter(chainId));
     }
 
-    return this.evmAdapters.get(chainId)!;
+    const adapter = this.evmAdapters.get(chainId);
+    if (!adapter) {
+      throw new Error(`Failed to create EVM adapter for chain: ${chainId}`);
+    }
+    return adapter;
   }
 
   /**

@@ -28,12 +28,12 @@ export class CardanoAdapter extends BaseChainAdapter {
 
     if (error && typeof error === 'object') {
       const errorObj = error as Record<string, unknown>;
-      
+
       // Cardano API error format
       if (typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       // Cardano transaction error format
       if (errorObj.error && typeof errorObj.error === 'object') {
         const innerError = errorObj.error as Record<string, unknown>;
@@ -41,20 +41,32 @@ export class CardanoAdapter extends BaseChainAdapter {
           return innerError.message;
         }
       }
-      
+
       // Plutus script error format
-      if (errorObj.ScriptFailure && typeof errorObj.ScriptFailure === 'object') {
+      if (
+        errorObj.ScriptFailure &&
+        typeof errorObj.ScriptFailure === 'object'
+      ) {
         const scriptFailure = errorObj.ScriptFailure as Record<string, unknown>;
-        if (typeof scriptFailure.PlutusFailure === 'object' && scriptFailure.PlutusFailure !== null) {
-          const plutusFailure = scriptFailure.PlutusFailure as Record<string, unknown>;
+        if (
+          typeof scriptFailure.PlutusFailure === 'object' &&
+          scriptFailure.PlutusFailure !== null
+        ) {
+          const plutusFailure = scriptFailure.PlutusFailure as Record<
+            string,
+            unknown
+          >;
           if (typeof plutusFailure.EvaluationError === 'string') {
             return plutusFailure.EvaluationError;
           }
         }
       }
-      
+
       // Cardano validation error format
-      if (errorObj.ValidationError && typeof errorObj.ValidationError === 'string') {
+      if (
+        errorObj.ValidationError &&
+        typeof errorObj.ValidationError === 'string'
+      ) {
         return errorObj.ValidationError;
       }
     }
@@ -79,8 +91,6 @@ export class CardanoAdapter extends BaseChainAdapter {
     }
 
     if (error && typeof error === 'object') {
-      const errorObj = error as Record<string, unknown>;
-      
       // Check for Cardano-specific properties
       return (
         this.hasErrorProperty(error, 'ScriptFailure') ||
@@ -102,12 +112,12 @@ export class CardanoAdapter extends BaseChainAdapter {
       'insufficient ada': 'Insufficient ADA balance for transaction',
       'script execution failed': 'Plutus script execution failed',
       'datum hash mismatch': 'Datum hash does not match expected value',
-      'plutus': 'Plutus smart contract error occurred',
-      'cardano': 'Cardano blockchain error occurred',
-      'utxo': 'UTXO validation error occurred',
+      plutus: 'Plutus smart contract error occurred',
+      cardano: 'Cardano blockchain error occurred',
+      utxo: 'UTXO validation error occurred',
       'invalid signature': 'Transaction signature is invalid',
       'expired transaction': 'Transaction has expired',
-      'fee too small': 'Transaction fee is too small'
+      'fee too small': 'Transaction fee is too small',
     };
   }
 
@@ -118,10 +128,11 @@ export class CardanoAdapter extends BaseChainAdapter {
     return {
       network: 'Cardano network error occurred. Please check your connection.',
       gas: 'Transaction fee estimation failed. Please try again.',
-      wallet: 'Cardano wallet error occurred. Please check your wallet connection.',
+      wallet:
+        'Cardano wallet error occurred. Please check your wallet connection.',
       contract: 'Cardano smart contract execution failed.',
       transaction: 'Cardano transaction failed. Please try again.',
-      evm: 'Cardano blockchain error occurred.'
+      evm: 'Cardano blockchain error occurred.',
     };
   }
 }

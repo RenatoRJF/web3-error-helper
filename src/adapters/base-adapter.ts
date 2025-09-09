@@ -19,11 +19,13 @@ export abstract class BaseChainAdapter implements ChainAdapter {
   /**
    * Extract error message from blockchain-specific error format
    */
+
   abstract extractErrorMessage(error: unknown): string;
 
   /**
    * Check if error format matches this ecosystem
    */
+
   abstract matchesErrorFormat(error: unknown): boolean;
 
   /**
@@ -47,19 +49,19 @@ export abstract class BaseChainAdapter implements ChainAdapter {
     if (error && typeof error === 'object') {
       // Try common error message properties
       const errorObj = error as Record<string, unknown>;
-      
+
       if (typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       if (typeof errorObj.error === 'string') {
         return errorObj.error;
       }
-      
+
       if (typeof errorObj.reason === 'string') {
         return errorObj.reason;
       }
-      
+
       if (typeof errorObj.details === 'string') {
         return errorObj.details;
       }

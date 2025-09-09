@@ -32,25 +32,25 @@ export class EVMAdapter extends BaseChainAdapter {
 
     if (error && typeof error === 'object') {
       const errorObj = error as Record<string, unknown>;
-      
+
       // EVM-specific error message extraction
       if (typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       if (typeof errorObj.reason === 'string') {
         return errorObj.reason;
       }
-      
+
       if (typeof errorObj.data === 'string') {
         return errorObj.data;
       }
-      
+
       // Handle ethers.js error format
       if (errorObj.code && typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       // Handle web3.js error format
       if (errorObj.error && typeof errorObj.error === 'object') {
         const innerError = errorObj.error as Record<string, unknown>;
@@ -80,8 +80,6 @@ export class EVMAdapter extends BaseChainAdapter {
     }
 
     if (error && typeof error === 'object') {
-      const errorObj = error as Record<string, unknown>;
-      
       // Check for EVM-specific properties
       return (
         this.hasErrorProperty(error, 'code') ||
@@ -103,10 +101,10 @@ export class EVMAdapter extends BaseChainAdapter {
       'insufficient funds': 'Insufficient balance for transaction',
       'gas required exceeds allowance': 'Gas limit too low',
       'nonce too low': 'Transaction nonce is too low',
-      'revert': 'Transaction was reverted',
+      revert: 'Transaction was reverted',
       'user rejected': 'Transaction was rejected by user',
       'network error': 'Network connection failed',
-      'timeout': 'Transaction timeout occurred'
+      timeout: 'Transaction timeout occurred',
     };
   }
 
@@ -120,7 +118,7 @@ export class EVMAdapter extends BaseChainAdapter {
       wallet: 'Wallet error occurred. Please check your wallet connection.',
       contract: 'Smart contract execution failed.',
       transaction: 'Transaction failed. Please try again.',
-      evm: 'EVM execution error occurred.'
+      evm: 'EVM execution error occurred.',
     };
   }
 }

@@ -33,12 +33,12 @@ export class CosmosAdapter extends BaseChainAdapter {
 
     if (error && typeof error === 'object') {
       const errorObj = error as Record<string, unknown>;
-      
+
       // Cosmos ABCI error format
       if (errorObj.code && typeof errorObj.message === 'string') {
         return errorObj.message;
       }
-      
+
       // Cosmos transaction error format
       if (errorObj.tx_response && typeof errorObj.tx_response === 'object') {
         const txResponse = errorObj.tx_response as Record<string, unknown>;
@@ -46,7 +46,7 @@ export class CosmosAdapter extends BaseChainAdapter {
           return txResponse.raw_log;
         }
       }
-      
+
       // Cosmos RPC error format
       if (errorObj.error && typeof errorObj.error === 'object') {
         const innerError = errorObj.error as Record<string, unknown>;
@@ -54,7 +54,7 @@ export class CosmosAdapter extends BaseChainAdapter {
           return innerError.message;
         }
       }
-      
+
       // Cosmos module error format
       if (errorObj.type && typeof errorObj.message === 'string') {
         return errorObj.message;
@@ -82,8 +82,6 @@ export class CosmosAdapter extends BaseChainAdapter {
     }
 
     if (error && typeof error === 'object') {
-      const errorObj = error as Record<string, unknown>;
-      
       // Check for Cosmos-specific properties
       return (
         this.hasErrorProperty(error, 'code') ||
@@ -104,14 +102,15 @@ export class CosmosAdapter extends BaseChainAdapter {
     return {
       'insufficient funds': 'Insufficient balance for transaction',
       'account sequence mismatch': 'Account sequence number mismatch',
-      'signature verification failed': 'Transaction signature verification failed',
+      'signature verification failed':
+        'Transaction signature verification failed',
       'invalid sequence': 'Invalid account sequence number',
       'out of gas': 'Transaction ran out of gas',
-      'ABCI': 'ABCI application error occurred',
-      'cosmos': 'Cosmos blockchain error occurred',
+      ABCI: 'ABCI application error occurred',
+      cosmos: 'Cosmos blockchain error occurred',
       'invalid account': 'Account address is invalid',
       'insufficient fee': 'Transaction fee is too low',
-      'memo too large': 'Transaction memo exceeds maximum size'
+      'memo too large': 'Transaction memo exceeds maximum size',
     };
   }
 
@@ -122,10 +121,11 @@ export class CosmosAdapter extends BaseChainAdapter {
     return {
       network: 'Cosmos network error occurred. Please check your connection.',
       gas: 'Gas estimation failed. Please try again or increase gas limit.',
-      wallet: 'Cosmos wallet error occurred. Please check your wallet connection.',
+      wallet:
+        'Cosmos wallet error occurred. Please check your wallet connection.',
       contract: 'Cosmos module execution failed.',
       transaction: 'Cosmos transaction failed. Please try again.',
-      evm: 'Cosmos blockchain error occurred.'
+      evm: 'Cosmos blockchain error occurred.',
     };
   }
 }
