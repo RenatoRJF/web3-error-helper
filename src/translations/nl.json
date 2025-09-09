@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "network": "Netwerkfout opgetreden. Controleer uw verbinding.",
+    "wallet": "Portemonnee-fout opgetreden. Controleer uw portemonnee-verbinding.",
+    "insufficient_funds": "Onvoldoende saldo voor transactie",
+    "transaction_failed": "Transactie mislukt. Probeer opnieuw.",
+    "unknown_error": "Een onbekende fout is opgetreden"
+  }
+}

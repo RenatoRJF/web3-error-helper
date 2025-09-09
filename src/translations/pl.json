@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "network": "Wystąpił błąd sieci. Sprawdź połączenie.",
+    "wallet": "Wystąpił błąd portfela. Sprawdź połączenie portfela.",
+    "insufficient_funds": "Niewystarczające środki na transakcję",
+    "transaction_failed": "Transakcja nie powiodła się. Spróbuj ponownie.",
+    "unknown_error": "Wystąpił nieznany błąd"
+  }
+}
