@@ -3,22 +3,8 @@
 exports[`Error Translation Snapshots should handle different error types consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -26,22 +12,8 @@ exports[`Error Translation Snapshots should handle different error types consist
 exports[`Error Translation Snapshots should handle different error types consistently 2`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -49,22 +21,8 @@ exports[`Error Translation Snapshots should handle different error types consist
 exports[`Error Translation Snapshots should handle different error types consistently 3`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -72,22 +30,8 @@ exports[`Error Translation Snapshots should handle different error types consist
 exports[`Error Translation Snapshots should handle different error types consistently 4`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -95,22 +39,8 @@ exports[`Error Translation Snapshots should handle different error types consist
 exports[`Error Translation Snapshots should handle different error types consistently 5`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -118,22 +48,8 @@ exports[`Error Translation Snapshots should handle different error types consist
 exports[`Error Translation Snapshots should handle options consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -141,22 +57,8 @@ exports[`Error Translation Snapshots should handle options consistently 1`] = `
 exports[`Error Translation Snapshots should handle options consistently 2`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "polygon",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -164,22 +66,8 @@ exports[`Error Translation Snapshots should handle options consistently 2`] = `
 exports[`Error Translation Snapshots should handle options consistently 3`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -187,22 +75,8 @@ exports[`Error Translation Snapshots should handle options consistently 3`] = `
 exports[`Error Translation Snapshots should handle options consistently 4`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": true,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": Any<Object>,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -210,22 +84,8 @@ exports[`Error Translation Snapshots should handle options consistently 4`] = `
 exports[`Error Translation Snapshots should handle options consistently 5`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": true,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -233,22 +93,8 @@ exports[`Error Translation Snapshots should handle options consistently 5`] = `
 exports[`Error Translation Snapshots should handle unknown errors consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "medium",
-  },
-  "fallbackUsed": true,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -256,22 +102,8 @@ exports[`Error Translation Snapshots should handle unknown errors consistently 1
 exports[`Error Translation Snapshots should handle unknown errors consistently 2`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "medium",
-  },
-  "fallbackUsed": true,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -279,22 +111,8 @@ exports[`Error Translation Snapshots should handle unknown errors consistently 2
 exports[`Error Translation Snapshots should handle unknown errors consistently 3`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "medium",
-  },
-  "fallbackUsed": true,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -302,22 +120,8 @@ exports[`Error Translation Snapshots should handle unknown errors consistently 3
 exports[`Error Translation Snapshots should handle unknown errors consistently 4`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "medium",
-  },
-  "fallbackUsed": true,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -325,22 +129,8 @@ exports[`Error Translation Snapshots should handle unknown errors consistently 4
 exports[`Error Translation Snapshots should translate "0x01" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -348,22 +138,8 @@ exports[`Error Translation Snapshots should translate "0x01" consistently 1`] = 
 exports[`Error Translation Snapshots should translate "0x11" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -371,22 +147,8 @@ exports[`Error Translation Snapshots should translate "0x11" consistently 1`] = 
 exports[`Error Translation Snapshots should translate "0x12" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -394,22 +156,8 @@ exports[`Error Translation Snapshots should translate "0x12" consistently 1`] = 
 exports[`Error Translation Snapshots should translate "0x21" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -417,22 +165,8 @@ exports[`Error Translation Snapshots should translate "0x21" consistently 1`] = 
 exports[`Error Translation Snapshots should translate "0x22" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -440,22 +174,8 @@ exports[`Error Translation Snapshots should translate "0x22" consistently 1`] = 
 exports[`Error Translation Snapshots should translate "0x31" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -463,22 +183,8 @@ exports[`Error Translation Snapshots should translate "0x31" consistently 1`] = 
 exports[`Error Translation Snapshots should translate "0x41" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -486,22 +192,8 @@ exports[`Error Translation Snapshots should translate "0x41" consistently 1`] = 
 exports[`Error Translation Snapshots should translate "0x51" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -509,22 +201,8 @@ exports[`Error Translation Snapshots should translate "0x51" consistently 1`] = 
 exports[`Error Translation Snapshots should translate "AccessControl: account is missing role" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -532,22 +210,8 @@ exports[`Error Translation Snapshots should translate "AccessControl: account is
 exports[`Error Translation Snapshots should translate "ERC20: insufficient allowance" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -555,22 +219,8 @@ exports[`Error Translation Snapshots should translate "ERC20: insufficient allow
 exports[`Error Translation Snapshots should translate "ERC20: transfer amount exceeds allowance" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -578,22 +228,8 @@ exports[`Error Translation Snapshots should translate "ERC20: transfer amount ex
 exports[`Error Translation Snapshots should translate "ERC20: transfer amount exceeds balance" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -601,22 +237,8 @@ exports[`Error Translation Snapshots should translate "ERC20: transfer amount ex
 exports[`Error Translation Snapshots should translate "ERC20: transfer from the zero address" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -624,22 +246,8 @@ exports[`Error Translation Snapshots should translate "ERC20: transfer from the 
 exports[`Error Translation Snapshots should translate "ERC20: transfer to the zero address" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -647,22 +255,8 @@ exports[`Error Translation Snapshots should translate "ERC20: transfer to the ze
 exports[`Error Translation Snapshots should translate "Ownable: caller is not the owner" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -670,22 +264,8 @@ exports[`Error Translation Snapshots should translate "Ownable: caller is not th
 exports[`Error Translation Snapshots should translate "Pausable: paused" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -693,22 +273,8 @@ exports[`Error Translation Snapshots should translate "Pausable: paused" consist
 exports[`Error Translation Snapshots should translate "ReentrancyGuard: reentrant call" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -716,22 +282,8 @@ exports[`Error Translation Snapshots should translate "ReentrancyGuard: reentran
 exports[`Error Translation Snapshots should translate "SafeMath: addition overflow" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -739,22 +291,8 @@ exports[`Error Translation Snapshots should translate "SafeMath: addition overfl
 exports[`Error Translation Snapshots should translate "SafeMath: division by zero" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -762,22 +300,8 @@ exports[`Error Translation Snapshots should translate "SafeMath: division by zer
 exports[`Error Translation Snapshots should translate "SafeMath: multiplication overflow" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -785,22 +309,8 @@ exports[`Error Translation Snapshots should translate "SafeMath: multiplication 
 exports[`Error Translation Snapshots should translate "SafeMath: subtraction overflow" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -808,22 +318,8 @@ exports[`Error Translation Snapshots should translate "SafeMath: subtraction ove
 exports[`Error Translation Snapshots should translate "Token: already minted" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -831,22 +327,8 @@ exports[`Error Translation Snapshots should translate "Token: already minted" co
 exports[`Error Translation Snapshots should translate "Token: nonexistent token" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -854,22 +336,8 @@ exports[`Error Translation Snapshots should translate "Token: nonexistent token"
 exports[`Error Translation Snapshots should translate "connection refused" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -877,22 +345,8 @@ exports[`Error Translation Snapshots should translate "connection refused" consi
 exports[`Error Translation Snapshots should translate "contract not found" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -900,22 +354,8 @@ exports[`Error Translation Snapshots should translate "contract not found" consi
 exports[`Error Translation Snapshots should translate "event not found" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -923,22 +363,8 @@ exports[`Error Translation Snapshots should translate "event not found" consiste
 exports[`Error Translation Snapshots should translate "execution reverted" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -946,22 +372,8 @@ exports[`Error Translation Snapshots should translate "execution reverted" consi
 exports[`Error Translation Snapshots should translate "gas limit too low" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -969,22 +381,8 @@ exports[`Error Translation Snapshots should translate "gas limit too low" consis
 exports[`Error Translation Snapshots should translate "gas price too low" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -992,22 +390,8 @@ exports[`Error Translation Snapshots should translate "gas price too low" consis
 exports[`Error Translation Snapshots should translate "gas required exceeds allowance" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1015,22 +399,8 @@ exports[`Error Translation Snapshots should translate "gas required exceeds allo
 exports[`Error Translation Snapshots should translate "insufficient funds for gas" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1038,22 +408,8 @@ exports[`Error Translation Snapshots should translate "insufficient funds for ga
 exports[`Error Translation Snapshots should translate "insufficient funds" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1061,22 +417,8 @@ exports[`Error Translation Snapshots should translate "insufficient funds" consi
 exports[`Error Translation Snapshots should translate "intrinsic gas too low" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1084,22 +426,8 @@ exports[`Error Translation Snapshots should translate "intrinsic gas too low" co
 exports[`Error Translation Snapshots should translate "invalid address" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1107,22 +435,8 @@ exports[`Error Translation Snapshots should translate "invalid address" consiste
 exports[`Error Translation Snapshots should translate "invalid data" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1130,22 +444,8 @@ exports[`Error Translation Snapshots should translate "invalid data" consistentl
 exports[`Error Translation Snapshots should translate "invalid jump" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1153,22 +453,8 @@ exports[`Error Translation Snapshots should translate "invalid jump" consistentl
 exports[`Error Translation Snapshots should translate "invalid opcode" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1176,22 +462,8 @@ exports[`Error Translation Snapshots should translate "invalid opcode" consisten
 exports[`Error Translation Snapshots should translate "max fee per gas too low" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1199,22 +471,8 @@ exports[`Error Translation Snapshots should translate "max fee per gas too low" 
 exports[`Error Translation Snapshots should translate "memory out of bounds" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1222,22 +480,8 @@ exports[`Error Translation Snapshots should translate "memory out of bounds" con
 exports[`Error Translation Snapshots should translate "network error" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1245,22 +489,8 @@ exports[`Error Translation Snapshots should translate "network error" consistent
 exports[`Error Translation Snapshots should translate "nonce too high" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1268,22 +498,8 @@ exports[`Error Translation Snapshots should translate "nonce too high" consisten
 exports[`Error Translation Snapshots should translate "nonce too low" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1291,22 +507,8 @@ exports[`Error Translation Snapshots should translate "nonce too low" consistent
 exports[`Error Translation Snapshots should translate "out of gas" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1314,22 +516,8 @@ exports[`Error Translation Snapshots should translate "out of gas" consistently 
 exports[`Error Translation Snapshots should translate "rate limit exceeded" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1337,22 +525,8 @@ exports[`Error Translation Snapshots should translate "rate limit exceeded" cons
 exports[`Error Translation Snapshots should translate "replacement transaction underpriced" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1360,22 +534,8 @@ exports[`Error Translation Snapshots should translate "replacement transaction u
 exports[`Error Translation Snapshots should translate "revert" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1383,22 +543,8 @@ exports[`Error Translation Snapshots should translate "revert" consistently 1`] 
 exports[`Error Translation Snapshots should translate "rpc error" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1406,22 +552,8 @@ exports[`Error Translation Snapshots should translate "rpc error" consistently 1
 exports[`Error Translation Snapshots should translate "service unavailable" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1429,22 +561,8 @@ exports[`Error Translation Snapshots should translate "service unavailable" cons
 exports[`Error Translation Snapshots should translate "stack overflow" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1452,22 +570,8 @@ exports[`Error Translation Snapshots should translate "stack overflow" consisten
 exports[`Error Translation Snapshots should translate "stack underflow" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1475,22 +579,8 @@ exports[`Error Translation Snapshots should translate "stack underflow" consiste
 exports[`Error Translation Snapshots should translate "timeout" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1498,22 +588,8 @@ exports[`Error Translation Snapshots should translate "timeout" consistently 1`]
 exports[`Error Translation Snapshots should translate "unsupported network" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1521,22 +597,8 @@ exports[`Error Translation Snapshots should translate "unsupported network" cons
 exports[`Error Translation Snapshots should translate "unsupported operation" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1544,22 +606,8 @@ exports[`Error Translation Snapshots should translate "unsupported operation" co
 exports[`Error Translation Snapshots should translate "user denied transaction" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1567,22 +615,8 @@ exports[`Error Translation Snapshots should translate "user denied transaction" 
 exports[`Error Translation Snapshots should translate "user rejected the request" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1590,22 +624,8 @@ exports[`Error Translation Snapshots should translate "user rejected the request
 exports[`Error Translation Snapshots should translate "wallet disconnected" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1613,22 +633,8 @@ exports[`Error Translation Snapshots should translate "wallet disconnected" cons
 exports[`Error Translation Snapshots should translate "wallet locked" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1636,22 +642,8 @@ exports[`Error Translation Snapshots should translate "wallet locked" consistent
 exports[`Error Translation Snapshots should translate "wallet not connected" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;
@@ -1659,22 +651,8 @@ exports[`Error Translation Snapshots should translate "wallet not connected" con
 exports[`Error Translation Snapshots should translate "wrong network" consistently 1`] = `
 {
   "chain": Any<String>,
-  "context": {
-    "chain": "ethereum",
-    "ecosystem": undefined,
-    "language": undefined,
-    "metadata": {
-      "autoDetectLanguage": false,
-      "hasCustomMappings": false,
-      "includeOriginalError": false,
-    },
-    "operation": "translateError",
-    "severity": "low",
-  },
-  "fallbackUsed": false,
   "message": Any<String>,
   "originalError": undefined,
-  "retryable": false,
   "translated": Any<Boolean>,
 }
 `;

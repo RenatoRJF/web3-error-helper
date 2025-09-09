@@ -1,9 +1,0 @@
-{
-  "errors": {
-    "network": "Si è verificato un errore di rete. Controlla la tua connessione.",
-    "wallet": "Si è verificato un errore del portafoglio. Controlla la connessione del portafoglio.",
-    "insufficient_funds": "Saldo insufficiente per la transazione",
-    "transaction_failed": "Transazione fallita. Riprova.",
-    "unknown_error": "Si è verificato un errore sconosciuto"
-  }
-}

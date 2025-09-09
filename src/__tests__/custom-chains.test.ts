@@ -2,16 +2,16 @@
  * Tests for custom chain functionality
  */
 
-import {
-  translateError,
-  registerCustomChain,
+import { 
+  translateError, 
+  registerCustomChain, 
   unregisterCustomChain,
   getCustomChain,
   getAllCustomChains,
   hasCustomChain,
   clearCustomChains,
   getAvailableChains,
-  CustomChainConfig,
+  CustomChainConfig 
 } from '../index';
 
 describe('Custom Chain Support', () => {
@@ -35,9 +35,9 @@ describe('Custom Chain Support', () => {
           {
             pattern: 'test error',
             message: 'This is a test error message',
-            priority: 15,
-          },
-        ],
+            priority: 15
+          }
+        ]
       };
 
       expect(() => registerCustomChain(config)).not.toThrow();
@@ -48,14 +48,12 @@ describe('Custom Chain Support', () => {
       const config: CustomChainConfig = {
         chainId: 'duplicate-chain',
         name: 'Duplicate Chain',
-        errorMappings: [],
+        errorMappings: []
       };
 
       registerCustomChain(config);
-
-      expect(() => registerCustomChain(config)).toThrow(
-        "Chain 'duplicate-chain' is already registered"
-      );
+      
+      expect(() => registerCustomChain(config)).toThrow('Chain \'duplicate-chain\' is already registered');
     });
 
     it('should validate chain configuration', () => {
@@ -63,22 +61,20 @@ describe('Custom Chain Support', () => {
         { chainId: '', name: 'Test', errorMappings: [] },
         { chainId: 'test', name: '', errorMappings: [] },
         { chainId: 'test', name: 'Test', errorMappings: 'invalid' as any },
-        {
-          chainId: 'test',
-          name: 'Test',
-          errorMappings: [{ pattern: '', message: 'test' }],
+        { 
+          chainId: 'test', 
+          name: 'Test', 
+          errorMappings: [{ pattern: '', message: 'test' }] 
         },
-        {
-          chainId: 'test',
-          name: 'Test',
-          errorMappings: [{ pattern: 'test', message: '' }],
-        },
+        { 
+          chainId: 'test', 
+          name: 'Test', 
+          errorMappings: [{ pattern: 'test', message: '' }] 
+        }
       ];
 
       invalidConfigs.forEach(config => {
-        expect(() =>
-          registerCustomChain(config as CustomChainConfig)
-        ).toThrow();
+        expect(() => registerCustomChain(config as CustomChainConfig)).toThrow();
       });
     });
   });
@@ -88,7 +84,7 @@ describe('Custom Chain Support', () => {
       const config: CustomChainConfig = {
         chainId: 'unregister-test',
         name: 'Unregister Test',
-        errorMappings: [],
+        errorMappings: []
       };
 
       registerCustomChain(config);
@@ -109,10 +105,12 @@ describe('Custom Chain Support', () => {
         chainId: 'get-test',
         name: 'Get Test',
         isEVMCompatible: true,
-        errorMappings: [{ pattern: 'test', message: 'test message' }],
+        errorMappings: [
+          { pattern: 'test', message: 'test message' }
+        ],
         customFallbacks: {
-          generic: 'Custom generic fallback',
-        },
+          generic: 'Custom generic fallback'
+        }
       };
 
       registerCustomChain(config);
@@ -131,13 +129,13 @@ describe('Custom Chain Support', () => {
         {
           chainId: 'chain-1',
           name: 'Chain 1',
-          errorMappings: [],
+          errorMappings: []
         },
         {
           chainId: 'chain-2',
           name: 'Chain 2',
-          errorMappings: [],
-        },
+          errorMappings: []
+        }
       ];
 
       configs.forEach(config => registerCustomChain(config));
@@ -151,7 +149,7 @@ describe('Custom Chain Support', () => {
     it('should clear all custom chains', () => {
       const configs: CustomChainConfig[] = [
         { chainId: 'chain-1', name: 'Chain 1', errorMappings: [] },
-        { chainId: 'chain-2', name: 'Chain 2', errorMappings: [] },
+        { chainId: 'chain-2', name: 'Chain 2', errorMappings: [] }
       ];
 
       configs.forEach(config => registerCustomChain(config));
@@ -171,9 +169,9 @@ describe('Custom Chain Support', () => {
           {
             pattern: 'custom error',
             message: 'This is a custom error message',
-            priority: 15,
-          },
-        ],
+            priority: 15
+          }
+        ]
       };
 
       registerCustomChain(config);
@@ -195,38 +193,30 @@ describe('Custom Chain Support', () => {
           generic: 'Custom generic fallback message',
           network: 'Custom network fallback message',
           wallet: 'Custom wallet fallback message',
-          contract: 'Custom contract fallback message',
-        },
+          contract: 'Custom contract fallback message'
+        }
       };
 
       registerCustomChain(config);
 
       // Test generic fallback
       const genericError = new Error('unknown error');
-      const genericResult = translateError(genericError, {
-        chain: 'fallback-test',
-      });
+      const genericResult = translateError(genericError, { chain: 'fallback-test' });
       expect(genericResult.message).toBe('Custom generic fallback message');
 
       // Test network fallback
       const networkError = new Error('network timeout');
-      const networkResult = translateError(networkError, {
-        chain: 'fallback-test',
-      });
+      const networkResult = translateError(networkError, { chain: 'fallback-test' });
       expect(networkResult.message).toBe('Custom network fallback message');
 
       // Test wallet fallback
       const walletError = new Error('wallet disconnected');
-      const walletResult = translateError(walletError, {
-        chain: 'fallback-test',
-      });
+      const walletResult = translateError(walletError, { chain: 'fallback-test' });
       expect(walletResult.message).toBe('Custom wallet fallback message');
 
       // Test contract fallback
       const contractError = new Error('contract execution failed');
-      const contractResult = translateError(contractError, {
-        chain: 'fallback-test',
-      });
+      const contractResult = translateError(contractError, { chain: 'fallback-test' });
       expect(contractResult.message).toBe('Custom contract fallback message');
     });
 
@@ -238,9 +228,9 @@ describe('Custom Chain Support', () => {
           {
             pattern: 'ERC20: transfer amount exceeds balance',
             message: 'Custom ERC20 error message',
-            priority: 20, // Higher priority than built-in (10)
-          },
-        ],
+            priority: 20 // Higher priority than built-in (10)
+          }
+        ]
       };
 
       registerCustomChain(config);
@@ -256,7 +246,7 @@ describe('Custom Chain Support', () => {
       const config: CustomChainConfig = {
         chainId: 'fallback-builtin-test',
         name: 'Fallback Builtin Test',
-        errorMappings: [], // No custom mappings
+        errorMappings: [] // No custom mappings
       };
 
       registerCustomChain(config);
@@ -265,9 +255,7 @@ describe('Custom Chain Support', () => {
       const result = translateError(error, { chain: 'fallback-builtin-test' });
 
       expect(result.translated).toBe(true);
-      expect(result.message).toBe(
-        "Insufficient token balance. You don't have enough tokens to complete this transfer."
-      );
+      expect(result.message).toBe('Insufficient token balance. You don\'t have enough tokens to complete this transfer.');
     });
   });
 
@@ -276,7 +264,7 @@ describe('Custom Chain Support', () => {
       const config: CustomChainConfig = {
         chainId: 'available-test',
         name: 'Available Test',
-        errorMappings: [],
+        errorMappings: []
       };
 
       registerCustomChain(config);
@@ -300,43 +288,31 @@ describe('Custom Chain Support', () => {
           name: 'Testnet',
           isEVMCompatible: true,
           errorMappings: [
-            {
-              pattern: 'testnet error',
-              message: 'Testnet error message',
-              priority: 15,
-            },
+            { pattern: 'testnet error', message: 'Testnet error message', priority: 15 }
           ],
           customFallbacks: {
-            generic: 'Testnet fallback',
-          },
+            generic: 'Testnet fallback'
+          }
         },
         {
           chainId: 'mainnet',
           name: 'Mainnet',
           isEVMCompatible: true,
           errorMappings: [
-            {
-              pattern: 'mainnet error',
-              message: 'Mainnet error message',
-              priority: 15,
-            },
+            { pattern: 'mainnet error', message: 'Mainnet error message', priority: 15 }
           ],
           customFallbacks: {
-            generic: 'Mainnet fallback',
-          },
+            generic: 'Mainnet fallback'
+          }
         },
         {
           chainId: 'non-evm',
           name: 'Non-EVM Chain',
           isEVMCompatible: false,
           errorMappings: [
-            {
-              pattern: 'non-evm error',
-              message: 'Non-EVM error message',
-              priority: 15,
-            },
-          ],
-        },
+            { pattern: 'non-evm error', message: 'Non-EVM error message', priority: 15 }
+          ]
+        }
       ];
 
       configs.forEach(config => registerCustomChain(config));
@@ -356,15 +332,11 @@ describe('Custom Chain Support', () => {
 
       // Test fallbacks
       const unknownTestnetError = new Error('unknown error');
-      const unknownTestnetResult = translateError(unknownTestnetError, {
-        chain: 'testnet',
-      });
+      const unknownTestnetResult = translateError(unknownTestnetError, { chain: 'testnet' });
       expect(unknownTestnetResult.message).toBe('Testnet fallback');
 
       const unknownMainnetError = new Error('unknown error');
-      const unknownMainnetResult = translateError(unknownMainnetError, {
-        chain: 'mainnet',
-      });
+      const unknownMainnetResult = translateError(unknownMainnetError, { chain: 'mainnet' });
       expect(unknownMainnetResult.message).toBe('Mainnet fallback');
     });
 
@@ -373,12 +345,8 @@ describe('Custom Chain Support', () => {
         chainId: 'sequence-test',
         name: 'Sequence Test',
         errorMappings: [
-          {
-            pattern: 'sequence error',
-            message: 'Sequence error message',
-            priority: 15,
-          },
-        ],
+          { pattern: 'sequence error', message: 'Sequence error message', priority: 15 }
+        ]
       };
 
       // Register
@@ -396,7 +364,7 @@ describe('Custom Chain Support', () => {
 
       // Test that it falls back to built-in mappings
       const fallbackResult = translateError(error, { chain: 'sequence-test' });
-      expect(fallbackResult.translated).toBe(true); // i18n system provides fallback translation
+      expect(fallbackResult.translated).toBe(false); // No custom mapping, falls back to generic
     });
   });
 });
