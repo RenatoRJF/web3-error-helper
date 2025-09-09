@@ -23,21 +23,4 @@ module.exports = {
       statements: 80,
     },
   },
-  // Snapshot configuration to handle dynamic content better
-  snapshotSerializers: [],
-  // Better snapshot handling
-  snapshotFormat: {
-    escapeString: true,
-    printBasicPrototype: false,
-  },
-  // Remove forced snapshot updates
-  // updateSnapshot: process.env.UPDATE_SNAPSHOTS === 'true',
-  // Verbose output for debugging
-  verbose: false,
-  // Clear mocks between tests
-  clearMocks: true,
-  // Reset modules between tests
-  resetMocks: true,
-  // Restore mocks between tests
-  restoreMocks: true,
 };

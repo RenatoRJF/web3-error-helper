@@ -1,9 +1,0 @@
-{
-  "errors": {
-    "network": "Đã xảy ra lỗi mạng. Vui lòng kiểm tra kết nối của bạn.",
-    "wallet": "Đã xảy ra lỗi ví. Vui lòng kiểm tra kết nối ví của bạn.",
-    "insufficient_funds": "Số dư không đủ cho giao dịch",
-    "transaction_failed": "Giao dịch thất bại. Vui lòng thử lại.",
-    "unknown_error": "Đã xảy ra lỗi không xác định"
-  }
-}

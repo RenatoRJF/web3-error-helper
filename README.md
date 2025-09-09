@@ -3,8 +3,8 @@
 > 🛠️ Turn confusing Web3 errors into clear, human-friendly messages for developers and users alike.
 
 [![npm version](https://img.shields.io/npm/v/web3-error-helper.svg)](https://www.npmjs.com/package/web3-error-helper)
-[![License](https://img.shields.io/github/license/RenatoRJF/web3-error-helper)](LICENSE)
-[![Build](https://img.shields.io/github/actions/workflow/status/RenatoRJF/web3-error-helper/ci.yml)](https://github.com/RenatoRJF/web3-error-helper/actions)
+[![License](https://img.shields.io/github/license/YOUR_GITHUB_USERNAME/web3-error-helper)](LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/YOUR_GITHUB_USERNAME/web3-error-helper/ci.yml)](https://github.com/YOUR_GITHUB_USERNAME/web3-error-helper/actions)
 
 ---
 
@@ -13,63 +13,31 @@
 Get started in seconds:
 
 ```ts
-import { translateError } from 'web3-error-helper';
+import { translateError } from "web3-error-helper";
 
 try {
   await contract.transfer(to, amount);
 } catch (err) {
-  const result = translateError(err, {
-    chain: 'polygon',
+  const result = translateError(err, { 
+    chain: "polygon",
     customMappings: {
-      'execution reverted: custom error':
-        'Custom error message for your contract',
-    },
+      "execution reverted: custom error": "Polygon-specific failure."
+    }
   });
   console.error(result.message);
-  // -> "Custom error message for your contract" or a human-readable default
+  // -> "Polygon-specific failure." or a human-readable default
 }
 ```
 
 No setup required—just wrap your calls, and your errors are instantly readable.
 
-> ⚠️ **Note**: Currently, all EVM-compatible chains use shared error mappings. Chain-specific error patterns are planned for future releases.
-
-### 🌍 Multi-Language Support
-
-Translate errors into 20+ languages with built-in translations:
-
-```ts
-import {
-  translateError,
-  registerLocale,
-  setCurrentLanguage,
-} from 'web3-error-helper';
-
-// Register Spanish translations
-registerLocale('es', {
-  errors: {
-    network: 'Error de red ocurrido. Por favor verifica tu conexión.',
-    wallet: 'Error de billetera ocurrido. Por favor verifica tu conexión.',
-    insufficient_funds: 'Saldo insuficiente para la transacción',
-  },
-});
-
-// Set language and translate
-setCurrentLanguage('es');
-const result = translateError(error, { language: 'es' });
-console.log(result.message); // -> "Error de red ocurrido..."
-```
-
 ## 🎯 Advanced Usage
 
 ### Custom Chain Support
-
 Register your own blockchain networks with custom error mappings:
 
-> ⚠️ **Note**: Custom chains use the same error mappings as built-in chains. Chain-specific error patterns are not yet implemented.
-
 ```ts
-import { registerCustomChain, translateError } from 'web3-error-helper';
+import { registerCustomChain, translateError } from "web3-error-helper";
 
 // Register a custom chain
 registerCustomChain({
@@ -80,9 +48,14 @@ registerCustomChain({
     {
       pattern: 'custom error pattern',
       message: 'Custom error message for your chain',
-      priority: 15,
-    },
+      priority: 15
+    }
   ],
+  customFallbacks: {
+    generic: 'Custom chain error occurred',
+    network: 'Custom chain network issue',
+    wallet: 'Custom chain wallet error'
+  }
 });
 
 // Use with custom chain
@@ -90,66 +63,35 @@ const result = translateError(error, { chain: 'my-custom-chain' });
 ```
 
 ### Error Categories & Advanced Options
-
 ```ts
-import { translateError, SupportedChain } from 'web3-error-helper';
+import { translateError, SupportedChain } from "web3-error-helper";
 
 const result = translateError(error, {
   chain: SupportedChain.POLYGON,
   fallbackMessage: 'Custom fallback message',
   includeOriginalError: true,
   customMappings: {
-    'specific error': 'Custom translation',
-  },
+    'specific error': 'Custom translation'
+  }
 });
 
-console.log(result.message); // Human-readable message
-console.log(result.translated); // Whether it was translated
-console.log(result.chain); // Chain used
-console.log(result.originalError); // Original error (if requested)
+console.log(result.message);        // Human-readable message
+console.log(result.translated);     // Whether it was translated
+console.log(result.chain);          // Chain used
+console.log(result.originalError);  // Original error (if requested)
 ```
 
-### Smart Language Management
-
-```ts
-import {
-  configureLanguageSelection,
-  detectFromBrowser,
-  getAvailableLanguages,
-} from 'web3-error-helper';
-
-// Configure language selection with optimization
-const result = configureLanguageSelection({
-  targetLanguages: ['es', 'pt', 'fr'],
-  includeEnglishFallback: true,
-  autoSuggest: true,
-  loadOnlyTarget: true,
-});
-
-// Auto-detect browser language
-const browserLang = detectFromBrowser(); // 'en-US' -> 'en'
-
-// Get available languages with metadata
-const languages = getAvailableLanguages();
-console.log(languages); // [{ code: 'en', info: {...} }, ...]
-```
-
-**Supported Languages (20):**
-English (en), Spanish (es), Portuguese (pt), Chinese (zh), Japanese (ja), Korean (ko), German (de), Russian (ru), Hindi (hi), Arabic (ar), Turkish (tr), Vietnamese (vi), Thai (th), Indonesian (id), Polish (pl), Ukrainian (uk), Hebrew (he), French (fr), Italian (it), Dutch (nl)
-
-> 📚 **Complete Examples:** Check out the [`examples/`](./examples/) directory for comprehensive usage examples including custom chains, advanced error handling, i18n usage, and real-world scenarios.
+> 📚 **Complete Examples:** Check out the [`examples/`](./examples/) directory for comprehensive usage examples including custom chains, advanced error handling, and real-world scenarios.
 
 ---
 
 ## ✨ Features
 
-- **Human-readable errors** – Translate confusing EVM and wallet errors into clear messages.
-- **Plug & Play** – Wrap `try/catch` blocks or RPC calls without extra setup.
-- **Extensible** – Add your own custom error mappings per project.
-- **Multi-chain support** – Works across EVM-compatible chains (Ethereum, Polygon, Arbitrum, Optimism, etc.) with shared error mappings.
+- **Human-readable errors** – Translate confusing EVM and wallet errors into clear messages.  
+- **Plug & Play** – Wrap `try/catch` blocks or RPC calls without extra setup.  
+- **Extensible** – Add your own custom error mappings per project.  
+- **Multi-chain support** – Works across EVM-compatible chains (Ethereum, Polygon, Arbitrum, Optimism, etc.).  
 - **Custom chain support** – Register and manage custom blockchain networks with their own error mappings.
-- **🌍 Internationalization (i18n)** – Multi-language support with smart language detection and bundle optimization.
-- **Smart language management** – Auto-detect browser language, suggest alternatives, and optimize bundle size.
 - **TypeScript-first** – Fully typed for safety and autocomplete with modern ES2022 features.
 - **Modern JavaScript** – Built with latest JS/TS features: nullish coalescing, optional chaining, and strict type checking.
 
@@ -174,65 +116,39 @@ pnpm add web3-error-helper
 ## 🔮 Roadmap
 
 ### ✅ Completed Features
-
-**Core Error Translation**
-
 - [x] **Error translation system** – Core functionality for translating EVM errors
-- [x] **Multi-chain support** – Built-in support for Ethereum, Polygon, Arbitrum, Optimism, BSC, Avalanche, Fantom, Base (shared error mappings)
+- [x] **Multi-chain support** – Built-in support for Ethereum, Polygon, Arbitrum, Optimism, BSC, Avalanche, Fantom, Base
 - [x] **Custom chain support** – Register and manage custom blockchain networks with full error mapping support
 - [x] **Error categories** – Organized error mappings (ERC20, gas, wallet, network, transaction, contract, EVM)
+- [x] **TypeScript support** – Full type safety and modern ES2024 features
 - [x] **Regex pattern matching** – Advanced error pattern recognition with priority-based matching
-- [x] **Configurable fallbacks** – Generic fallback messages with intelligent error type detection
+- [x] **Configurable fallbacks** – Chain-specific fallback messages with intelligent error type detection
 - [x] **Chain management** – Comprehensive chain discovery, validation, and statistics
 - [x] **Error type detection** – Automatic categorization of errors (network, wallet, contract, gas, transaction)
-
-**Type Safety & Code Quality**
-
-- [x] **TypeScript support** – Full type safety and modern ES2024 features
-- [x] **Type safety improvements** – Eliminated all `any` types with proper TypeScript types
-- [x] **Enhanced type definitions** – Comprehensive i18n type system with adapter-specific types
-- [x] **Non-null assertion fixes** – Replaced with proper fallback handling
-- [x] **Type guards** – Improved nested value access with safer object access
-
-**Internationalization (i18n)**
-
-- [x] **🌍 Multi-language support** – 20 blockchain-focused languages (English, Spanish, Portuguese, Chinese, Japanese, Korean, German, Russian, Hindi, Arabic, Turkish, Vietnamese, Thai, Indonesian, Polish, Ukrainian, Hebrew, French, Italian, Dutch)
-- [x] **Smart language management** – Bundle optimization with up to 70% size reduction
-- [x] **Language detection** – Auto-detect browser language and suggest alternatives
-- [x] **Translation key system** – Type-safe translation keys for different blockchain ecosystems
-- [x] **Partial override system** – Granular control with developer-provided locales
-- [x] **Automatic fallback system** – Developer translation → English fallback → Key itself
-- [x] **Language bundle optimization** – Smart loading with lazy loading system
-
-**Architecture & Infrastructure**
-
 - [x] **Modern architecture** – Clean separation of concerns with modular design
-- [x] **Adapter system** – Comprehensive blockchain ecosystem adapters (EVM, Solana, Cosmos, Near, Cardano, Polkadot, Algorand, Tezos, Stellar, Ripple)
-- [x] **Test infrastructure** – 157/157 tests passing with 73 stable snapshots
-- [x] **Timestamp mocking** – Consistent test results with mockable timestamp system
-- [x] **ESLint configuration** – Clean codebase with 0 linting errors
-- [x] **Production-ready quality** – Comprehensive testing and documentation
 
 ### 📋 Planned Features
 
-**Framework Components**
+**Core improvements**
+- [ ] **Enhanced error dictionary** – More comprehensive error mappings
+- [ ] **Performance optimizations** – Caching and faster pattern matching
 
-- [ ] React `<ErrorMessage />` component
-- [ ] Vue `<ErrorMessage />` component
-- [ ] Svelte `<ErrorMessage />` component
-- [ ] Angular `<ErrorMessage />` component
-- [ ] Web Component `<web3-error-message>`
+**Framework components**
+- [ ] React `<ErrorMessage />`  
+- [ ] Vue `<ErrorMessage />`  
+- [ ] Svelte `<ErrorMessage />`  
+- [ ] Angular `<ErrorMessage />`  
+- [ ] Web Component `<web3-error-message>`  
 
-**Enhanced Error Coverage**
+**Non-EVM chains**
+- [ ] Solana adapter  
+- [ ] Cosmos adapter  
 
-- [ ] **Expanded error dictionary** – More comprehensive error mappings for edge cases
-- [ ] **Chain-specific error patterns** – Individual blockchain error formats and patterns
-- [ ] **Error severity classification** – Automatic severity detection (low, medium, high, critical)
-
-**Developer Experience**
-
-- [ ] **Custom error formatting** – Flexible error message formatting options
-- [ ] **Error debugging tools** – Enhanced debugging and development utilities
+**Other features**
+- [ ] i18n (multi-language support)
+- [ ] Error analytics (optional logging/monitoring)
+- [ ] Error severity levels
+- [ ] Custom error formatting  
 
 ---
 
@@ -240,11 +156,11 @@ pnpm add web3-error-helper
 
 We love contributions! 🎉 To keep the library high-quality and consistent, please follow these simple rules:
 
-- **Code style:** Follow existing conventions (ESLint + Prettier). No style-only changes.
-- **Error messages:** Keep messages **clear, concise, and user-friendly**.
-- **Issue submissions:** Only create issues for **actual bugs or missing core functionality**. Minor suggestions or new error mappings are better suited for PRs.
-- **Adding chains or frameworks:** Stick to the roadmap. If you want to propose a new chain or component, open a discussion first.
-- **Tests required:** Always include unit tests when adding or updating error mappings.
+- **Code style:** Follow existing conventions (ESLint + Prettier). No style-only changes.  
+- **Error messages:** Keep messages **clear, concise, and user-friendly**.  
+- **Issue submissions:** Only create issues for **actual bugs or missing core functionality**. Minor suggestions or new error mappings are better suited for PRs.  
+- **Adding chains or frameworks:** Stick to the roadmap. If you want to propose a new chain or component, open a discussion first.  
+- **Tests required:** Always include unit tests when adding or updating error mappings.  
 - **Documentation:** Update README/examples if you add new features.
 
 Here's how to get started:
@@ -269,20 +185,17 @@ We enforce consistent branch naming to maintain project organization. All branch
 **Format:** `^(feature|fix|hotfix|release)\/[a-z0-9._-]+$`
 
 **Valid examples:**
-
 - `feature/user-authentication`
 - `fix/login-bug`
 - `hotfix/security-patch`
 - `release/v1.2.0`
 
 **Rules:**
-
 - Must start with: `feature/`, `fix/`, `hotfix/`, or `release/`
 - Use lowercase letters, numbers, dots, underscores, or hyphens only
 - No spaces or uppercase letters allowed
 
 The project includes automatic validation:
-
 - **Local validation:** Pre-push hook prevents invalid branch names
 - **Remote validation:** GitHub Actions validates PR branch names
 - **Manual check:** Run `npm run validate:branch` anytime
@@ -302,8 +215,8 @@ pnpm run clean
 
 ### Adding or Updating Errors
 
-- Add mappings inside `src/errors/` directory (JSON files for each category).
-- Keep messages **clear, concise, and user-friendly**.
+- Add mappings inside `src/errors/` directory (JSON files for each category).  
+- Keep messages **clear, concise, and user-friendly**.  
 - Follow the existing file structure (`erc20.json`, `gas.json`, `wallet.json`, etc.).
 - Use the `addCustomMappings` function for runtime custom mappings.
 
@@ -317,7 +230,7 @@ Ensure all tests pass before committing.
 
 ### Code Style
 
-- ESLint + Prettier are enforced.
+- ESLint + Prettier are enforced.  
 - Run the linter: `pnpm run lint`
 - Modern JavaScript/TypeScript features are used throughout the codebase
 - Follow ES2022 standards and TypeScript strict mode
@@ -327,7 +240,6 @@ Ensure all tests pass before committing.
 We use **Conventional Commits** for automatic versioning. Follow these patterns:
 
 #### **Major Version Bump (Breaking Changes)**
-
 ```bash
 git commit -m "feat!: redesign error translation API"
 git commit -m "fix: resolve critical bug
@@ -336,14 +248,12 @@ BREAKING CHANGE: API interface has changed"
 ```
 
 #### **Minor Version Bump (New Features)**
-
 ```bash
 git commit -m "feat: add Polygon chain support"
 git commit -m "feat: implement custom error mappings"
 ```
 
 #### **Patch Version Bump (Bug Fixes & Maintenance)**
-
 ```bash
 git commit -m "fix: resolve gas estimation error"
 git commit -m "docs: update README examples"
@@ -361,7 +271,6 @@ git commit -m "test: add unit tests for error mapping"
 ### Version Management
 
 The project uses automated versioning via GitHub Actions:
-
 - **Major bump**: `BREAKING CHANGE:` or `!:` in commit messages
 - **Minor bump**: `feat:` commits
 - **Patch bump**: `fix:`, `docs:`, `chore:`, `test:`, etc.
