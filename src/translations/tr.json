@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "network": "Ağ hatası oluştu. Lütfen bağlantınızı kontrol edin.",
+    "wallet": "Cüzdan hatası oluştu. Lütfen cüzdan bağlantınızı kontrol edin.",
+    "insufficient_funds": "İşlem için yetersiz bakiye",
+    "transaction_failed": "İşlem başarısız. Lütfen tekrar deneyin.",
+    "unknown_error": "Bilinmeyen bir hata oluştu"
+  }
+}

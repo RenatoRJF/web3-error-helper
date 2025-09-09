@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "network": "Erreur réseau survenue. Veuillez vérifier votre connexion.",
+    "wallet": "Erreur de portefeuille survenue. Veuillez vérifier votre connexion de portefeuille.",
+    "insufficient_funds": "Solde insuffisant pour la transaction",
+    "transaction_failed": "Transaction échouée. Veuillez réessayer.",
+    "unknown_error": "Une erreur inconnue s'est produite"
+  }
+}
