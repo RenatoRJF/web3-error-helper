@@ -21,15 +21,18 @@ try {
   const result = translateError(err, {
     chain: 'polygon',
     customMappings: {
-      'execution reverted: custom error': 'Polygon-specific failure.',
+      'execution reverted: custom error':
+        'Custom error message for your contract',
     },
   });
   console.error(result.message);
-  // -> "Polygon-specific failure." or a human-readable default
+  // -> "Custom error message for your contract" or a human-readable default
 }
 ```
 
 No setup required—just wrap your calls, and your errors are instantly readable.
+
+> ⚠️ **Note**: Currently, all EVM-compatible chains use shared error mappings. Chain-specific error patterns are planned for future releases.
 
 ### 🌍 Multi-Language Support
 
@@ -63,6 +66,8 @@ console.log(result.message); // -> "Error de red ocurrido..."
 
 Register your own blockchain networks with custom error mappings:
 
+> ⚠️ **Note**: Custom chains use the same error mappings as built-in chains. Chain-specific error patterns are not yet implemented.
+
 ```ts
 import { registerCustomChain, translateError } from 'web3-error-helper';
 
@@ -78,11 +83,6 @@ registerCustomChain({
       priority: 15,
     },
   ],
-  customFallbacks: {
-    generic: 'Custom chain error occurred',
-    network: 'Custom chain network issue',
-    wallet: 'Custom chain wallet error',
-  },
 });
 
 // Use with custom chain
@@ -146,7 +146,7 @@ English (en), Spanish (es), Portuguese (pt), Chinese (zh), Japanese (ja), Korean
 - **Human-readable errors** – Translate confusing EVM and wallet errors into clear messages.
 - **Plug & Play** – Wrap `try/catch` blocks or RPC calls without extra setup.
 - **Extensible** – Add your own custom error mappings per project.
-- **Multi-chain support** – Works across EVM-compatible chains (Ethereum, Polygon, Arbitrum, Optimism, etc.).
+- **Multi-chain support** – Works across EVM-compatible chains (Ethereum, Polygon, Arbitrum, Optimism, etc.) with shared error mappings.
 - **Custom chain support** – Register and manage custom blockchain networks with their own error mappings.
 - **🌍 Internationalization (i18n)** – Multi-language support with smart language detection and bundle optimization.
 - **Smart language management** – Auto-detect browser language, suggest alternatives, and optimize bundle size.
@@ -178,11 +178,11 @@ pnpm add web3-error-helper
 **Core Error Translation**
 
 - [x] **Error translation system** – Core functionality for translating EVM errors
-- [x] **Multi-chain support** – Built-in support for Ethereum, Polygon, Arbitrum, Optimism, BSC, Avalanche, Fantom, Base
+- [x] **Multi-chain support** – Built-in support for Ethereum, Polygon, Arbitrum, Optimism, BSC, Avalanche, Fantom, Base (shared error mappings)
 - [x] **Custom chain support** – Register and manage custom blockchain networks with full error mapping support
 - [x] **Error categories** – Organized error mappings (ERC20, gas, wallet, network, transaction, contract, EVM)
 - [x] **Regex pattern matching** – Advanced error pattern recognition with priority-based matching
-- [x] **Configurable fallbacks** – Chain-specific fallback messages with intelligent error type detection
+- [x] **Configurable fallbacks** – Generic fallback messages with intelligent error type detection
 - [x] **Chain management** – Comprehensive chain discovery, validation, and statistics
 - [x] **Error type detection** – Automatic categorization of errors (network, wallet, contract, gas, transaction)
 
@@ -226,26 +226,13 @@ pnpm add web3-error-helper
 **Enhanced Error Coverage**
 
 - [ ] **Expanded error dictionary** – More comprehensive error mappings for edge cases
-- [ ] **Chain-specific error patterns** – Deeper integration with individual blockchain error formats
+- [ ] **Chain-specific error patterns** – Individual blockchain error formats and patterns
 - [ ] **Error severity classification** – Automatic severity detection (low, medium, high, critical)
-
-**Performance & Analytics**
-
-- [ ] **Advanced caching** – Intelligent caching strategies for better performance
-- [ ] **Error analytics** – Optional logging and monitoring capabilities
-- [ ] **Performance metrics** – Translation speed and accuracy tracking
 
 **Developer Experience**
 
 - [ ] **Custom error formatting** – Flexible error message formatting options
 - [ ] **Error debugging tools** – Enhanced debugging and development utilities
-- [ ] **CLI tools** – Command-line utilities for error analysis and translation
-
-**Advanced Features**
-
-- [ ] **Error prediction** – Proactive error detection and prevention
-- [ ] **Context-aware translations** – Smart translations based on user context
-- [ ] **A/B testing support** – Error message optimization through testing
 
 ---
 
