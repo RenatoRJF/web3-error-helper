@@ -238,14 +238,14 @@ class I18nManager implements I18nManagerInterface {
     obj: Record<string, unknown>,
     path: string
   ): string | null {
-    return (
-      path.split('.').reduce((current: unknown, key) => {
-        if (current && typeof current === 'object' && key in current) {
-          return (current as Record<string, unknown>)[key];
-        }
-        return undefined;
-      }, obj as unknown) || null
-    );
+    const result = path.split('.').reduce((current: unknown, key) => {
+      if (current && typeof current === 'object' && key in current) {
+        return (current as Record<string, unknown>)[key];
+      }
+      return undefined;
+    }, obj as unknown);
+
+    return typeof result === 'string' ? result : null;
   }
 
   /**
