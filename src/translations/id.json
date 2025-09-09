@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "network": "Terjadi kesalahan jaringan. Silakan periksa koneksi Anda.",
+    "wallet": "Terjadi kesalahan dompet. Silakan periksa koneksi dompet Anda.",
+    "insufficient_funds": "Saldo tidak mencukupi untuk transaksi",
+    "transaction_failed": "Transaksi gagal. Silakan coba lagi.",
+    "unknown_error": "Terjadi kesalahan yang tidak diketahui"
+  }
+}
