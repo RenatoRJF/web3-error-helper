@@ -2,9 +2,24 @@
  * Snapshot tests to prevent regressions in error translations
  */
 
-import { translateError } from '../index';
+/* eslint-disable @typescript-eslint/no-unused-vars, no-unused-vars */
+import {
+  translateError,
+  setTimestampForTesting,
+  resetTimestampForTesting,
+} from '../index';
 
 describe('Error Translation Snapshots', () => {
+  beforeEach(() => {
+    // Set a fixed timestamp for consistent snapshots
+    setTimestampForTesting(1234567890000);
+  });
+
+  afterEach(() => {
+    // Reset to real time after each test
+    resetTimestampForTesting();
+  });
+
   const testErrors = [
     // ERC20 errors
     'ERC20: transfer amount exceeds balance',
@@ -12,7 +27,7 @@ describe('Error Translation Snapshots', () => {
     'ERC20: insufficient allowance',
     'ERC20: transfer to the zero address',
     'ERC20: transfer from the zero address',
-    
+
     // Gas errors
     'gas required exceeds allowance',
     'out of gas',
@@ -22,7 +37,7 @@ describe('Error Translation Snapshots', () => {
     'insufficient funds',
     'max fee per gas too low',
     'intrinsic gas too low',
-    
+
     // Transaction errors
     'nonce too low',
     'nonce too high',
@@ -33,7 +48,7 @@ describe('Error Translation Snapshots', () => {
     'contract not found',
     'event not found',
     'unsupported operation',
-    
+
     // EVM errors
     'invalid opcode',
     'revert',
@@ -49,7 +64,7 @@ describe('Error Translation Snapshots', () => {
     '0x31',
     '0x41',
     '0x51',
-    
+
     // Contract errors
     'Ownable: caller is not the owner',
     'Pausable: paused',
@@ -61,7 +76,7 @@ describe('Error Translation Snapshots', () => {
     'SafeMath: division by zero',
     'ReentrancyGuard: reentrant call',
     'AccessControl: account is missing role',
-    
+
     // Wallet errors
     'user rejected the request',
     'user denied transaction',
@@ -70,7 +85,7 @@ describe('Error Translation Snapshots', () => {
     'wallet locked',
     'wrong network',
     'unsupported network',
-    
+
     // Network errors
     'network error',
     'timeout',
@@ -83,8 +98,19 @@ describe('Error Translation Snapshots', () => {
   testErrors.forEach(errorMessage => {
     it(`should translate "${errorMessage}" consistently`, () => {
       const result = translateError(new Error(errorMessage));
-      
-      expect(result).toMatchSnapshot({
+
+      const {
+        timestamp: _timestamp,
+        context,
+        ...resultWithoutTimestamp
+      } = result;
+      const { timestamp: _contextTimestamp, ...contextWithoutTimestamp } =
+        context || {};
+      const resultForSnapshot = {
+        ...resultWithoutTimestamp,
+        ...(context && { context: contextWithoutTimestamp }),
+      };
+      expect(resultForSnapshot).toMatchSnapshot({
         message: expect.any(String),
         translated: expect.any(Boolean),
         chain: expect.any(String),
@@ -102,8 +128,19 @@ describe('Error Translation Snapshots', () => {
 
     unknownErrors.forEach(errorMessage => {
       const result = translateError(new Error(errorMessage));
-      
-      expect(result).toMatchSnapshot({
+
+      const {
+        timestamp: _timestamp,
+        context,
+        ...resultWithoutTimestamp
+      } = result;
+      const { timestamp: _contextTimestamp, ...contextWithoutTimestamp } =
+        context || {};
+      const resultForSnapshot = {
+        ...resultWithoutTimestamp,
+        ...(context && { context: contextWithoutTimestamp }),
+      };
+      expect(resultForSnapshot).toMatchSnapshot({
         message: expect.any(String),
         translated: expect.any(Boolean),
         chain: expect.any(String),
@@ -122,8 +159,19 @@ describe('Error Translation Snapshots', () => {
 
     errorTypes.forEach(error => {
       const result = translateError(error);
-      
-      expect(result).toMatchSnapshot({
+
+      const {
+        timestamp: _timestamp,
+        context,
+        ...resultWithoutTimestamp
+      } = result;
+      const { timestamp: _contextTimestamp, ...contextWithoutTimestamp } =
+        context || {};
+      const resultForSnapshot = {
+        ...resultWithoutTimestamp,
+        ...(context && { context: contextWithoutTimestamp }),
+      };
+      expect(resultForSnapshot).toMatchSnapshot({
         message: expect.any(String),
         translated: expect.any(Boolean),
         chain: expect.any(String),
@@ -133,7 +181,7 @@ describe('Error Translation Snapshots', () => {
 
   it('should handle options consistently', () => {
     const error = new Error('ERC20: transfer amount exceeds balance');
-    
+
     const options = [
       {},
       { chain: 'polygon' },
@@ -144,12 +192,25 @@ describe('Error Translation Snapshots', () => {
 
     options.forEach(option => {
       const result = translateError(error, option);
-      
-      expect(result).toMatchSnapshot({
+
+      const {
+        timestamp: _timestamp,
+        context,
+        ...resultWithoutTimestamp
+      } = result;
+      const { timestamp: _contextTimestamp, ...contextWithoutTimestamp } =
+        context || {};
+      const resultForSnapshot = {
+        ...resultWithoutTimestamp,
+        ...(context && { context: contextWithoutTimestamp }),
+      };
+      expect(resultForSnapshot).toMatchSnapshot({
         message: expect.any(String),
         translated: expect.any(Boolean),
         chain: expect.any(String),
-        originalError: option.includeOriginalError ? expect.any(Object) : undefined,
+        originalError: option.includeOriginalError
+          ? expect.any(Object)
+          : undefined,
       });
     });
   });

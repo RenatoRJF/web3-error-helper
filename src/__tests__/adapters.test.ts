@@ -2,22 +2,29 @@
  * Tests for chain adapters
  */
 
-import { 
-  EVMAdapter, 
-  SolanaAdapter, 
-  CosmosAdapter, 
-  NearAdapter, 
-  CardanoAdapter, 
-  PolkadotAdapter, 
-  AlgorandAdapter, 
-  TezosAdapter, 
-  StellarAdapter, 
-  RippleAdapter, 
-  adapterRegistry 
+import {
+  EVMAdapter,
+  SolanaAdapter,
+  CosmosAdapter,
+  NearAdapter,
+  StellarAdapter,
+  RippleAdapter,
+  adapterRegistry,
 } from '../adapters';
 import { BlockchainEcosystem } from '../types';
+import { setTimestampForTesting, resetTimestampForTesting } from '../index';
 
 describe('Chain Adapters', () => {
+  beforeEach(() => {
+    // Set a fixed timestamp for consistent tests
+    setTimestampForTesting(1234567890000);
+  });
+
+  afterEach(() => {
+    // Reset to real time after each test
+    resetTimestampForTesting();
+  });
+
   describe('EVMAdapter', () => {
     let adapter: EVMAdapter;
 
@@ -40,7 +47,7 @@ describe('Chain Adapters', () => {
     it('should match EVM error format', () => {
       const evmError = 'execution reverted: insufficient funds';
       const nonEvmError = 'program error: 6000';
-      
+
       expect(adapter.matchesErrorFormat(evmError)).toBe(true);
       expect(adapter.matchesErrorFormat(nonEvmError)).toBe(false);
     });
@@ -69,7 +76,7 @@ describe('Chain Adapters', () => {
 
     it('should extract error message from Solana instruction error', () => {
       const error = {
-        InstructionError: [0, { Custom: 6000 }]
+        InstructionError: [0, { Custom: 6000 }],
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('Program error: 6000');
@@ -79,9 +86,9 @@ describe('Chain Adapters', () => {
       const error = {
         data: {
           err: {
-            message: 'insufficient funds'
-          }
-        }
+            message: 'insufficient funds',
+          },
+        },
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('insufficient funds');
@@ -90,7 +97,7 @@ describe('Chain Adapters', () => {
     it('should match Solana error format', () => {
       const solanaError = 'insufficient funds';
       const evmError = 'execution reverted';
-      
+
       expect(adapter.matchesErrorFormat(solanaError)).toBe(true);
       expect(adapter.matchesErrorFormat(evmError)).toBe(false);
     });
@@ -113,7 +120,7 @@ describe('Chain Adapters', () => {
     it('should extract error message from Cosmos ABCI error', () => {
       const error = {
         code: 5,
-        message: 'insufficient funds'
+        message: 'insufficient funds',
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('insufficient funds');
@@ -122,8 +129,8 @@ describe('Chain Adapters', () => {
     it('should extract error message from Cosmos transaction response', () => {
       const error = {
         tx_response: {
-          raw_log: 'insufficient funds: insufficient account funds'
-        }
+          raw_log: 'insufficient funds: insufficient account funds',
+        },
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('insufficient funds: insufficient account funds');
@@ -132,7 +139,7 @@ describe('Chain Adapters', () => {
     it('should match Cosmos error format', () => {
       const cosmosError = 'insufficient funds';
       const evmError = 'execution reverted';
-      
+
       expect(adapter.matchesErrorFormat(cosmosError)).toBe(true);
       expect(adapter.matchesErrorFormat(evmError)).toBe(false);
     });
@@ -158,11 +165,11 @@ describe('Chain Adapters', () => {
           ActionError: {
             kind: {
               FunctionCallError: {
-                ExecutionError: 'Smart contract execution failed'
-              }
-            }
-          }
-        }
+                ExecutionError: 'Smart contract execution failed',
+              },
+            },
+          },
+        },
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('Smart contract execution failed');
@@ -170,7 +177,7 @@ describe('Chain Adapters', () => {
 
     it('should extract error message from Near account error', () => {
       const error = {
-        AccountDoesNotExist: true
+        AccountDoesNotExist: true,
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('Account does not exist on Near Protocol');
@@ -179,7 +186,7 @@ describe('Chain Adapters', () => {
     it('should match Near error format', () => {
       const nearError = 'insufficient balance';
       const evmError = 'execution reverted';
-      
+
       expect(adapter.matchesErrorFormat(nearError)).toBe(true);
       expect(adapter.matchesErrorFormat(evmError)).toBe(false);
     });
@@ -202,8 +209,8 @@ describe('Chain Adapters', () => {
     it('should extract error message from Stellar operation error', () => {
       const error = {
         operation_error: {
-          code: 'INSUFFICIENT_BALANCE'
-        }
+          code: 'INSUFFICIENT_BALANCE',
+        },
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('Operation error: INSUFFICIENT_BALANCE');
@@ -211,7 +218,7 @@ describe('Chain Adapters', () => {
 
     it('should extract error message from Stellar horizon error', () => {
       const error = {
-        horizon_error: 'insufficient balance'
+        horizon_error: 'insufficient balance',
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('insufficient balance');
@@ -220,7 +227,7 @@ describe('Chain Adapters', () => {
     it('should match Stellar error format', () => {
       const stellarError = 'insufficient balance';
       const evmError = 'execution reverted';
-      
+
       expect(adapter.matchesErrorFormat(stellarError)).toBe(true);
       expect(adapter.matchesErrorFormat(evmError)).toBe(false);
     });
@@ -243,8 +250,8 @@ describe('Chain Adapters', () => {
     it('should extract error message from Ripple transaction result', () => {
       const error = {
         transaction_result: {
-          result: 'INSUFFICIENT_FUNDS'
-        }
+          result: 'INSUFFICIENT_FUNDS',
+        },
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('Transaction result: INSUFFICIENT_FUNDS');
@@ -252,7 +259,7 @@ describe('Chain Adapters', () => {
 
     it('should extract error message from Ripple ledger error', () => {
       const error = {
-        ledger_error: 'insufficient funds'
+        ledger_error: 'insufficient funds',
       };
       const result = adapter.extractErrorMessage(error);
       expect(result).toBe('insufficient funds');
@@ -261,7 +268,7 @@ describe('Chain Adapters', () => {
     it('should match Ripple error format', () => {
       const rippleError = 'insufficient funds';
       const evmError = 'execution reverted';
-      
+
       expect(adapter.matchesErrorFormat(rippleError)).toBe(true);
       expect(adapter.matchesErrorFormat(evmError)).toBe(false);
     });
@@ -281,7 +288,9 @@ describe('Chain Adapters', () => {
     });
 
     it('should return undefined for unsupported ecosystem', () => {
-      const unsupportedAdapter = adapterRegistry.getAdapter('unsupported' as BlockchainEcosystem);
+      const unsupportedAdapter = adapterRegistry.getAdapter(
+        'unsupported' as BlockchainEcosystem
+      );
       expect(unsupportedAdapter).toBeUndefined();
     });
 
@@ -299,10 +308,10 @@ describe('Chain Adapters', () => {
     it('should detect appropriate adapter', () => {
       const evmError = 'execution reverted: gas required exceeds allowance';
       const solanaError = 'program error: 6000';
-      
+
       const evmAdapter = adapterRegistry.detectAdapter(evmError);
       const solanaAdapter = adapterRegistry.detectAdapter(solanaError);
-      
+
       expect(evmAdapter).toBeInstanceOf(EVMAdapter);
       expect(solanaAdapter).toBeInstanceOf(SolanaAdapter);
     });
@@ -332,15 +341,19 @@ describe('Chain Adapters', () => {
       expect(adapterRegistry.isEcosystemSupported('tezos')).toBe(true);
       expect(adapterRegistry.isEcosystemSupported('stellar')).toBe(true);
       expect(adapterRegistry.isEcosystemSupported('ripple')).toBe(true);
-      expect(adapterRegistry.isEcosystemSupported('unsupported' as BlockchainEcosystem)).toBe(false);
+      expect(
+        adapterRegistry.isEcosystemSupported(
+          'unsupported' as BlockchainEcosystem
+        )
+      ).toBe(false);
     });
 
     it('should register and unregister custom adapter', () => {
       const customAdapter = new EVMAdapter(9999);
-      
+
       adapterRegistry.registerAdapter('evm', customAdapter);
       expect(adapterRegistry.getAdapter('evm')).toBe(customAdapter);
-      
+
       const unregistered = adapterRegistry.unregisterAdapter('evm');
       expect(unregistered).toBe(true);
     });
